@@ -9,6 +9,11 @@ const slides = [
   "gallery/slide2.png",
   "gallery/slide3.png",
   "gallery/slide4.png",
+  "gallery/slide5.png",
+  "gallery/slide6.png",
+  "gallery/slide7.png",
+  "gallery/slide8.png",
+
 ]
 
 export function GallerySection() {

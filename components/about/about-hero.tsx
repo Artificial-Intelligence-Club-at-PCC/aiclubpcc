@@ -31,7 +31,7 @@ export function AboutHero() {
           <span className="text-balance">Our story</span>
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-          From a small friend group to one of the most active student
+          From a small friend group to one of the active student
           organizations on campus, here is how we got here.
         </p>
       </div>

@@ -19,6 +19,12 @@ const contactDetails = [
     href: LINKS.email,
   },
   {
+    icon: ExternalLink,
+    label: "Become an Official Member on LancerLife",
+    value: "lancerlife.pasadena.edu/organization/aimlclub",
+    href:  LINKS.lancerlife,
+  },
+  {
     icon: Mail,
     label: "Drop questions on Discord",
     value: "Invite Link",
@@ -29,7 +35,7 @@ const contactDetails = [
     label: "Meeting Location",
     value: "R-206",
   },
-  {
+  { 
     icon: Clock,
     label: "Weekly Meetings",
     value: "Thursdays, 12:00 PM - 2:00 PM",

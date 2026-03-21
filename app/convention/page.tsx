@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { useState, useEffect, useCallback } from "react"
 import {
   Calendar,
   MapPin,
@@ -11,56 +12,57 @@ import {
   MessageSquare,
   ArrowRight,
   ChevronRight,
+  ChevronLeft,
 } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { SectionWrapper } from "@/components/section-wrapper"
 
 const schedule = [
   {
-    time: "9:00 AM - 9:30 AM",
+    time: "To Be Announced",
     title: "Doors Open & Check-In",
     description: "Pick up your badge and grab coffee before the day begins.",
   },
   {
-    time: "9:30 AM - 10:00 AM",
+    time: "To Be Announced",
     title: "Opening Remarks",
     description:
       "Welcome address from the AI Club president and faculty advisor.",
   },
   {
-    time: "10:00 AM - 12:00 PM",
+    time: "To Be Announced",
     title: "Tabling Fair",
     description:
       "Browse booths from campus programs, research labs, student clubs, and industry partners. Explore opportunities in AI research, internships, graduate programs, and more.",
     tag: "Tabling Fair",
   },
   {
-    time: "12:00 PM - 1:00 PM",
+    time: "To Be Announced",
     title: "Lunch Break",
     description:
       "Catered lunch in the atrium. Network with speakers and attendees.",
   },
   {
-    time: "1:00 PM - 2:30 PM",
+    time: "To Be Announced",
     title: "Guest Speaker Presentations",
     description:
       "Hear from leading researchers and industry professionals on the latest breakthroughs in AI, from generative models to responsible deployment.",
     tag: "Guest Speakers",
   },
   {
-    time: "2:30 PM - 2:45 PM",
+    time: "To Be Announced",
     title: "Short Break",
     description: "Refreshments and networking.",
   },
   {
-    time: "2:45 PM - 4:00 PM",
+    time: "To Be Announced",
     title: "Panel Discussion",
     description:
       "An engaging panel of academics and practitioners discussing the future of AI in industry, academia, and society. Audience Q&A included.",
     tag: "Panel",
   },
   {
-    time: "4:00 PM - 4:30 PM",
+    time: "To Be Announced",
     title: "Closing Ceremony & Awards",
     description:
       "Wrap-up, acknowledgements, and recognition of outstanding projects and contributors.",
@@ -73,6 +75,115 @@ const highlights2025 = [
   { stat: "9", label: "Guest Speakers" },
   { stat: "2", label: "Panel Discussions" },
 ]
+
+const conventionPhotos = [
+  "/convention/conventionpic1.jpg",
+  "/convention/conventionpic2.jpg",
+  "/convention/conventionpic3.jpg",
+  "/convention/conventionpic4.jpg",
+  "/convention/conventionpic5.jpg",
+  "/convention/conventionpic6.jpg",
+  "/convention/conventionpic7.jpg",
+  "/convention/conventionpic8.jpg",
+  "/convention/conventionpic9.jpg",
+  "/convention/conventionpic10.jpg",
+  "/convention/conventionpic11.jpg",
+  "/convention/conventionpic12.jpg",
+  "/convention/conventionpic13.jpg",
+  "/convention/conventionpic14.jpg",
+  "/convention/conventionpic15.jpg",
+  "/convention/conventionpic16.jpg",
+  "/convention/conventionpic17.jpg",
+  "/convention/conventionpic18.jpg",
+  "/convention/conventionpic19.jpg",
+  "/convention/conventionpic20.jpg",
+  "/convention/conventionpic21.jpg",
+  "/convention/conventionpic22.jpg",
+  "/convention/conventionpic23.jpg",
+  "/convention/conventionpic24.jpg",
+  "/convention/conventionpic25.jpg",
+  "/convention/conventionpic26.jpg",
+  "/convention/conventionpic27.jpg",
+]
+
+function ConventionSlideshow() {
+  const [current, setCurrent] = useState(0)
+  const [paused, setPaused] = useState(false)
+
+  const prev = useCallback(() => {
+    setCurrent((c) => (c - 1 + conventionPhotos.length) % conventionPhotos.length)
+  }, [])
+
+  const next = useCallback(() => {
+    setCurrent((c) => (c + 1) % conventionPhotos.length)
+  }, [])
+
+  useEffect(() => {
+    if (paused) return
+    const timer = setInterval(next, 4000)
+    return () => clearInterval(timer)
+  }, [paused, next])
+
+  return (
+    <div
+      className="relative mt-14 overflow-hidden rounded-2xl border border-border bg-secondary"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <div className="relative aspect-[16/9] w-full">
+        {conventionPhotos.map((src, i) => (
+          <div
+            key={src}
+            className={`absolute inset-0 transition-opacity duration-700 ${
+              i === current ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <Image
+              src={src}
+              alt={`AI Convention 2025 photo ${i + 1}`}
+              fill
+              className="object-cover"
+            />
+          </div>
+        ))}
+      </div>
+
+      <button
+        onClick={prev}
+        className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-background/70 p-2 text-foreground backdrop-blur-sm transition hover:bg-background/90"
+        aria-label="Previous photo"
+      >
+        <ChevronLeft className="h-5 w-5" />
+      </button>
+      <button
+        onClick={next}
+        className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-background/70 p-2 text-foreground backdrop-blur-sm transition hover:bg-background/90"
+        aria-label="Next photo"
+      >
+        <ChevronRight className="h-5 w-5" />
+      </button>
+
+      <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-1.5">
+        {conventionPhotos.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`h-2 rounded-full transition-all ${
+              i === current
+                ? "w-6 bg-white"
+                : "w-2 bg-white/50 hover:bg-white/75"
+            }`}
+            aria-label={`Go to photo ${i + 1}`}
+          />
+        ))}
+      </div>
+
+      <div className="absolute right-3 bottom-3 rounded-full bg-background/70 px-2.5 py-1 text-xs font-semibold text-foreground backdrop-blur-sm">
+        {current + 1} / {conventionPhotos.length}
+      </div>
+    </div>
+  )
+}
 
 export default function ConventionPage() {
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation(0.05)
@@ -110,29 +221,37 @@ export default function ConventionPage() {
             intelligence.
           </p>
 
-          {/* Quick details */}
           <div className="mx-auto mt-10 flex flex-col items-center justify-center gap-6 sm:flex-row">
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Calendar className="h-4 w-4 text-accent" />
-              <span>April 12, 2026</span>
+              <span>April 23, 2026</span>
             </div>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Clock className="h-4 w-4 text-accent" />
-              <span>9:00 AM - 4:30 PM</span>
+              <span>Time To Be Announced</span>
             </div>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <MapPin className="h-4 w-4 text-accent" />
-              <span>University Conference Center</span>
+              <span>Crevling Lounge, Pasadena City College</span>
             </div>
           </div>
 
-          <div className="mt-8">
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.02] active:scale-[0.98]"
             >
               Register Interest
               <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href="https://artificial-intelligence-club-at-pcc.github.io/aihorizons/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-background"
+            >
+              View 2025 Convention
+              <ChevronRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
@@ -172,9 +291,9 @@ export default function ConventionPage() {
                 Guest Speakers
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                Hear from leading researchers and industry professionals on
-                the latest breakthroughs in generative AI, responsible
-                deployment, and more.
+                Hear from leading researchers and industry professionals on the
+                latest breakthroughs in generative AI, responsible deployment,
+                and more.
               </p>
             </div>
             <div className="flex flex-col items-center text-center">
@@ -204,6 +323,10 @@ export default function ConventionPage() {
             <h2 className="mt-2 font-[family-name:var(--font-space-grotesk)] text-3xl font-bold tracking-tight text-foreground md:text-4xl">
               The Day at a Glance
             </h2>
+            <p className="mx-auto mt-3 max-w-lg text-sm text-muted-foreground">
+              Full schedule coming soon. Check back closer to the event date for
+              confirmed times.
+            </p>
           </div>
 
           <div className="mt-14 flex flex-col gap-0">
@@ -215,7 +338,7 @@ export default function ConventionPage() {
                 }`}
               >
                 <div className="w-40 shrink-0">
-                  <p className="text-sm font-semibold text-foreground">
+                  <p className="text-sm font-semibold text-muted-foreground">
                     {item.time}
                   </p>
                 </div>
@@ -268,6 +391,9 @@ export default function ConventionPage() {
               </div>
             ))}
           </div>
+
+          {/* Slideshow */}
+          <ConventionSlideshow />
 
           <div className="mx-auto mt-14 max-w-2xl">
             <p className="text-base leading-relaxed text-muted-foreground">

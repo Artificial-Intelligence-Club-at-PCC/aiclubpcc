@@ -13,8 +13,8 @@ export default function HomePage() {
       <HeroSection />
       <GallerySection />
       <MissionSection />
-      {/* <ProjectsSection />
-      <UpcomingEventsSection /> */}
+      <ProjectsSection />
+      <UpcomingEventsSection /> 
       <MembershipSection />
     </>
   )
