@@ -10,34 +10,35 @@ const upcomingEvents = [
     date: "March 26, 2025",
     time: "12:00 PM – 1:00 PM",
     location: "R206, Pasadena City College",
-    description: "Evan Chou, former AI Club President & Co-founder and 2x AI/ML Engineering Intern at NASA JPL, will share his experience building real-world AI/ML projects, how hands-on work builds technical expertise, and practical career advice.",
+    description: "Evan Chou, former Co-founder & AI Club President, UCSD Transfer, and 2x AI/ML Engineering Intern at NASA JPL, will be sharing his experience building real-world AI/ML projects, and practical career advice.",
     type: "Speaker",
   },
   {
     title: "AI Convention 2026",
     date: "April 23, 2026",
     time: "To Be Announced",
-    location: "Crevling Lounge, Pasadena City College",
+    location: "Creveling Lounge, Pasadena City College",
     description: "Our annual AI Convention is back! More details on schedule, speakers, and activities coming soon. Save the date.",
     type: "Convention",
   },
-  {
-    title: "Workshop — Details Coming Soon",
-    date: "To Be Announced",
-    time: "To Be Announced",
-    location: "To Be Announced",
-    description: "Stay tuned for details on our next workshop. Follow us on Instagram or join our Discord to get notified when this is confirmed.",
-    type: "Workshop",
-  },
-  {
-    title: "Club Meeting — Details Coming Soon",
-    date: "To Be Announced",
-    time: "To Be Announced",
-    location: "To Be Announced",
-    description: "Our next general meeting is being planned. Check back soon for the date, time, and topic.",
-    type: "Meeting",
-  },
+  // {
+  //   title: "Workshop — Details Coming Soon",
+  //   date: "To Be Announced",
+  //   time: "To Be Announced",
+  //   location: "To Be Announced",
+  //   description: "Stay tuned for details on our next workshop. Follow us on Instagram or join our Discord to get notified when this is confirmed.",
+  //   type: "Workshop",
+  // },
+  // {
+  //   title: "Club Meeting — Details Coming Soon",
+  //   date: "To Be Announced",
+  //   time: "To Be Announced",
+  //   location: "To Be Announced",
+  //   description: "Our next general meeting is being planned. Check back soon for the date, time, and topic.",
+  //   type: "Meeting",
+  // },
 ]
+export default upcomingEvents
 
 const typeColors: Record<string, string> = {
   Workshop: "bg-accent/10 text-accent",

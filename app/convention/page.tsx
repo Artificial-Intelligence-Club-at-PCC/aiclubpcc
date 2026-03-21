@@ -13,6 +13,7 @@ import {
   ArrowRight,
   ChevronRight,
   ChevronLeft,
+  CoffeeIcon,
 } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { SectionWrapper } from "@/components/section-wrapper"
@@ -20,50 +21,41 @@ import { SectionWrapper } from "@/components/section-wrapper"
 const schedule = [
   {
     time: "To Be Announced",
-    title: "Doors Open & Check-In",
-    description: "Pick up your badge and grab coffee before the day begins.",
-  },
-  {
-    time: "To Be Announced",
     title: "Opening Remarks",
     description:
-      "Welcome address from the AI Club president and faculty advisor.",
+      "Welcome address from the AI Club president and faculty advisor. Sets the tone for the day and provides an overview of the schedule and key highlights.",
   },
   {
     time: "To Be Announced",
-    title: "Tabling Fair",
+    title: "Career and Internship Fair",
     description:
-      "Browse booths from campus programs, research labs, student clubs, and industry partners. Explore opportunities in AI research, internships, graduate programs, and more.",
-    tag: "Tabling Fair",
+      "Explore career programs, educational opportunities, internship programs, and student-led clubs with their projects. Connect with industry partners and campus resources to learn about AI opportunities and future pathways.",
+    tag: "Career Fair",
   },
   {
     time: "To Be Announced",
-    title: "Lunch Break",
+    title: "Guest Speaker Presentation",
     description:
-      "Catered lunch in the atrium. Network with speakers and attendees.",
+      "TBA: Hear from a leading researcher or industry professional on cutting-edge AI developments, trends, and applications. Gain insights from expert perspectives in AI research and industry practice.",
+    tag: "Guest Speaker",
   },
   {
     time: "To Be Announced",
-    title: "Guest Speaker Presentations",
+    title: "Guest Speaker Presentation",
     description:
-      "Hear from leading researchers and industry professionals on the latest breakthroughs in AI, from generative models to responsible deployment.",
-    tag: "Guest Speakers",
+      "TBA: Hear from a leading researcher or industry professional on cutting-edge AI developments, trends, and applications. Gain insights from expert perspectives in AI research and industry practice.",
+    tag: "Guest Speaker",
   },
   {
     time: "To Be Announced",
-    title: "Short Break",
-    description: "Refreshments and networking.",
-  },
-  {
-    time: "To Be Announced",
-    title: "Panel Discussion",
+    title: "Panel",
     description:
-      "An engaging panel of academics and practitioners discussing the future of AI in industry, academia, and society. Audience Q&A included.",
+      "An interactive discussion with academics, industry professionals, and practitioners on the future of AI, ethical considerations, and real-world applications. Audience Q&A is included.",
     tag: "Panel",
   },
   {
     time: "To Be Announced",
-    title: "Closing Ceremony & Awards",
+    title: "Closing Ceremony",
     description:
       "Wrap-up, acknowledgements, and recognition of outstanding projects and contributors.",
   },
@@ -232,7 +224,7 @@ export default function ConventionPage() {
             </div>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <MapPin className="h-4 w-4 text-accent" />
-              <span>Crevling Lounge, Pasadena City College</span>
+              <span>Creveling Lounge, Pasadena City College</span>
             </div>
           </div>
 
@@ -250,7 +242,7 @@ export default function ConventionPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-background"
             >
-              View 2025 Convention
+              Revisit 2025 Convention
               <ChevronRight className="h-4 w-4" />
             </Link>
           </div>
@@ -269,7 +261,7 @@ export default function ConventionPage() {
             </h2>
           </div>
 
-          <div className="mt-14 grid gap-8 md:grid-cols-3">
+          <div className="mt-14 grid gap-8 md:grid-cols-4">
             <div className="flex flex-col items-center text-center">
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-secondary text-accent">
                 <Users className="h-6 w-6" />
@@ -307,6 +299,17 @@ export default function ConventionPage() {
                 An engaging conversation with academics and practitioners on the
                 future of AI in industry, academia, and society, with audience
                 Q&A.
+              </p>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-secondary text-accent">
+                <CoffeeIcon className="h-6 w-6" />
+              </div>
+              <h3 className="mt-4 font-[family-name:var(--font-space-grotesk)] text-lg font-bold text-foreground">
+                Snacks & Refreshments
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Enjoy a variety of food, snacks, and beverages throughout the event. Take a break, grab a bite, and network with fellow attendees in a relaxed setting.
               </p>
             </div>
           </div>

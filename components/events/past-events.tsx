@@ -96,12 +96,12 @@ const pastEvents = [
 
 const typeColors: Record<string, string> = {
   Convention: "bg-accent/10 text-accent",
-  "Field Trip": "bg-primary/10 text-primary",
+  "Field Trip": "bg-green-100 text-green-700",
   Showcase: "bg-chart-2/10 text-chart-2",
   Meeting: "bg-chart-4/10 text-chart-4",
   Workshop: "bg-accent/10 text-accent",
   Speaker: "bg-chart-2/10 text-chart-2",
-  "Info Session": "bg-primary/10 text-primary",
+  "Info Session": "bg-yellow-100 text-yellow-700",
 }
 
 export function PastEvents() {
@@ -121,7 +121,7 @@ export function PastEvents() {
           <div className="absolute left-4 top-0 h-full w-px bg-border md:left-1/2 md:-translate-x-px" />
 
           <div className="flex flex-col gap-12">
-            {pastEvents.map((event, index) => (
+            {pastEvents.slice().reverse().map((event, index) => (
               <div
                 key={event.title + event.date}
                 className={`relative flex flex-col gap-4 pl-12 md:w-1/2 md:pl-0 ${
