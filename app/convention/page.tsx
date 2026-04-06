@@ -7,67 +7,115 @@ import {
   Calendar,
   MapPin,
   Clock,
-  Users,
-  Mic2,
-  MessageSquare,
-  ArrowRight,
   ChevronRight,
   ChevronLeft,
-  CoffeeIcon,
+  Linkedin,
 } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { SectionWrapper } from "@/components/section-wrapper"
+import { Button } from "@/components/ui/button"
 
-const schedule = [
+// =============================================================================
+// DATA CONFIGURATION - Edit this section to update event details
+// =============================================================================
+
+// Guest Speakers - Add/edit speakers here
+const guestSpeakers: GuestSpeaker[] = [
   {
-    time: "To Be Announced",
-    title: "Opening Remarks",
-    description:
-      "Welcome address from the AI Club president and faculty advisor. Sets the tone for the day and provides an overview of the schedule and key highlights.",
+    id: "speaker-1",
+    name: "Speaker Name",
+    title: "Job Title",
+    bio: "Brief bio about the speaker and their expertise in AI. This speaker has extensive experience in the field and has contributed to numerous projects. They are passionate about education and helping students discover opportunities in AI.",
+    image: "/convention/speakers/placeholder.jpg", // Add speaker photo
+    linkedin: "https://linkedin.com/in/username",
+    companyLogos: ["/convention/logos/company1.png"], // Add company logos
   },
   {
-    time: "To Be Announced",
-    title: "Career and Internship Fair",
-    description:
-      "Explore career programs, educational opportunities, internship programs, and student-led clubs with their projects. Connect with industry partners and campus resources to learn about AI opportunities and future pathways.",
-    tag: "Career Fair",
+    id: "speaker-2",
+    name: "Speaker Name",
+    title: "Job Title",
+    bio: "Brief bio about the speaker and their expertise in AI. This speaker has extensive experience in the field and has contributed to numerous projects. They are passionate about education and helping students discover opportunities in AI.",
+    image: "/convention/speakers/placeholder.jpg",
+    linkedin: "https://linkedin.com/in/username",
+    companyLogos: ["/convention/logos/company2.png"],
   },
   {
-    time: "To Be Announced",
-    title: "Guest Speaker Presentation",
-    description:
-      "TBA: Hear from a leading researcher or industry professional on cutting-edge AI developments, trends, and applications. Gain insights from expert perspectives in AI research and industry practice.",
-    tag: "Guest Speaker",
+    id: "speaker-3",
+    name: "Speaker Name",
+    title: "Job Title",
+    bio: "Brief bio about the speaker and their expertise in AI. This speaker has extensive experience in the field and has contributed to numerous projects. They are passionate about education and helping students discover opportunities in AI.",
+    image: "/convention/speakers/placeholder.jpg",
+    linkedin: "https://linkedin.com/in/username",
+    companyLogos: ["/convention/logos/company3.png"],
   },
   {
-    time: "To Be Announced",
-    title: "Guest Speaker Presentation",
-    description:
-      "TBA: Hear from a leading researcher or industry professional on cutting-edge AI developments, trends, and applications. Gain insights from expert perspectives in AI research and industry practice.",
-    tag: "Guest Speaker",
-  },
-  {
-    time: "To Be Announced",
-    title: "Panel",
-    description:
-      "An interactive discussion with academics, industry professionals, and practitioners on the future of AI, ethical considerations, and real-world applications. Audience Q&A is included.",
-    tag: "Panel",
-  },
-  {
-    time: "To Be Announced",
-    title: "Closing Ceremony",
-    description:
-      "Wrap-up, acknowledgements, and recognition of outstanding projects and contributors.",
+    id: "speaker-4",
+    name: "Speaker Name",
+    title: "Job Title",
+    bio: "Brief bio about the speaker and their expertise in AI. This speaker has extensive experience in the field and has contributed to numerous projects. They are passionate about education and helping students discover opportunities in AI.",
+    image: "/convention/speakers/placeholder.jpg",
+    linkedin: "https://linkedin.com/in/username",
+    companyLogos: ["/convention/logos/company4.png"],
   },
 ]
 
-const highlights2025 = [
-  { stat: "200+", label: "Attendees" },
-  { stat: "15", label: "Clubs & Career Programs" },
-  { stat: "9", label: "Guest Speakers" },
-  { stat: "2", label: "Panel Discussions" },
+// Event Schedule - Edit times and details here
+const eventSchedule: ScheduleItem[] = [
+  {
+    type: "tabling-fair",
+    timeStart: "10:00 AM",
+    timeEnd: "2:00 PM",
+    title: "Career, Programs, and Internships Fair",
+    description:
+      "Explore booths from campus programs, research labs, student clubs, and industry partners offering internships and opportunities.",
+  },
+  {
+    type: "presentation",
+    timeStart: "11:00 AM",
+    timeEnd: "11:30 AM",
+    title: "Presentation Title TBA",
+    description: "Description of the presentation topic and what attendees will learn...",
+    speakerId: "speaker-1",
+    flyer: "/convention/flyers/presentation1.jpg", // Add flyer image
+  },
+  {
+    type: "presentation",
+    timeStart: "11:45 AM",
+    timeEnd: "12:15 PM",
+    title: "Presentation Title TBA",
+    description: "Description of the presentation topic and what attendees will learn...",
+    speakerId: "speaker-2",
+    flyer: "/convention/flyers/presentation2.jpg",
+  },
+  {
+    type: "panel",
+    timeStart: "12:30 PM",
+    timeEnd: "1:15 PM",
+    title: "Panel Discussion Title TBA",
+    description:
+      "An interactive discussion with academics, industry professionals, and practitioners on the future of AI, ethical considerations, and real-world applications.",
+    speakerIds: ["speaker-1", "speaker-2", "speaker-3", "speaker-4"],
+    flyer: "/convention/flyers/panel1.jpg",
+  },
+  {
+    type: "closing",
+    timeStart: "1:30 PM",
+    timeEnd: "2:00 PM",
+    title: "Closing Remarks & Networking",
+    description:
+      "Wrap-up, acknowledgements, recognition of contributors, and open networking session.",
+  },
 ]
 
+// Collaborating Clubs/Organizations
+const collaborators: Collaborator[] = [
+  { name: "Organization 1", logo: "/convention/collaborators/org1.png", url: "#" },
+  { name: "Organization 2", logo: "/convention/collaborators/org2.png", url: "#" },
+  { name: "Organization 3", logo: "/convention/collaborators/org3.png", url: "#" },
+  { name: "Organization 4", logo: "/convention/collaborators/org4.png", url: "#" },
+]
+
+// 2025 Convention Photos
 const conventionPhotos = [
   "/convention/conventionpic1.jpg",
   "/convention/conventionpic2.jpg",
@@ -98,6 +146,311 @@ const conventionPhotos = [
   "/convention/conventionpic27.jpg",
 ]
 
+const highlights2025 = [
+  { stat: "200+", label: "Attendees" },
+  { stat: "15", label: "Clubs & Career Programs" },
+  { stat: "9", label: "Guest Speakers" },
+  { stat: "2", label: "Panel Discussions" },
+]
+
+// =============================================================================
+// TYPE DEFINITIONS
+// =============================================================================
+
+interface GuestSpeaker {
+  id: string
+  name: string
+  title: string
+  bio: string
+  image: string
+  linkedin: string
+  companyLogos: string[]
+}
+
+interface ScheduleItem {
+  type: "tabling-fair" | "presentation" | "panel" | "closing"
+  timeStart: string
+  timeEnd: string
+  title: string
+  description: string
+  speakerId?: string
+  speakerIds?: string[]
+  flyer?: string
+}
+
+interface Collaborator {
+  name: string
+  logo: string
+  url: string
+}
+
+// =============================================================================
+// HELPER FUNCTIONS
+// =============================================================================
+
+function getSpeakerById(id: string): GuestSpeaker | undefined {
+  return guestSpeakers.find((s) => s.id === id)
+}
+
+// =============================================================================
+// COMPONENTS
+// =============================================================================
+
+// Marquee Banner Component
+function MarqueeBanner() {
+  return (
+    <div className="relative w-full overflow-hidden bg-primary py-2">
+      <div className="animate-marquee flex whitespace-nowrap">
+        {[...Array(4)].map((_, i) => (
+          <span
+            key={i}
+            className="mx-8 text-xs font-medium tracking-wide text-primary-foreground"
+          >
+            Presented to you by Artificial Intelligence Club at Pasadena City College
+          </span>
+        ))}
+      </div>
+      <style jsx>{`
+        @keyframes marquee {
+          0% {
+            transform: translateX(0%);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-marquee {
+          animation: marquee 30s linear infinite;
+        }
+      `}</style>
+    </div>
+  )
+}
+
+// Speaker Card Component - Full size for presentations/panels
+function SpeakerCard({ speaker }: { speaker: GuestSpeaker }) {
+  return (
+    <div className="flex flex-col gap-4 pt-4 sm:flex-row sm:gap-6">
+      {/* Speaker Photo */}
+      <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-xl bg-secondary sm:h-40 sm:w-40">
+        <Image
+          src={speaker.image}
+          alt={speaker.name}
+          fill
+          className="object-cover"
+        />
+      </div>
+      
+      {/* Speaker Info */}
+      <div className="flex flex-1 flex-col">
+        <div className="flex flex-wrap items-center gap-3">
+          <h4 className="text-lg font-semibold text-foreground sm:text-xl">
+            {speaker.name}
+          </h4>
+          <Link
+            href={speaker.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent hover:text-accent/80 transition-colors"
+            aria-label={`${speaker.name}'s LinkedIn profile`}
+          >
+            <Linkedin className="h-5 w-5" />
+          </Link>
+        </div>
+        
+        <p className="mt-1 text-sm font-medium text-muted-foreground">
+          {speaker.title}
+        </p>
+        
+        {/* Company Logos */}
+        <div className="mt-3 flex flex-wrap items-center gap-3">
+          {speaker.companyLogos.map((logo, i) => (
+            <div key={i} className="relative h-8 w-20">
+              <Image
+                src={logo}
+                alt="Company logo"
+                fill
+                className="object-contain object-left"
+              />
+            </div>
+          ))}
+        </div>
+        
+        {/* Bio */}
+        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+          {speaker.bio}
+        </p>
+      </div>
+    </div>
+  )
+}
+
+// Schedule Item Components
+function TablingFairItem({ item }: { item: ScheduleItem }) {
+  return (
+    <div className="py-8">
+      <div className="flex flex-col gap-4 md:flex-row md:items-start md:gap-8">
+        <div className="shrink-0 md:w-40">
+          <span className="inline-block rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
+            Tabling Fair
+          </span>
+          <p className="mt-2 text-sm font-semibold text-foreground">
+            {item.timeStart} - {item.timeEnd}
+          </p>
+        </div>
+        <div className="flex-1">
+          <h3 className="font-[family-name:var(--font-space-grotesk)] text-xl font-bold text-foreground">
+            {item.title}
+          </h3>
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+            {item.description}
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function PresentationItem({ item }: { item: ScheduleItem }) {
+  const speaker = item.speakerId ? getSpeakerById(item.speakerId) : null
+
+  return (
+    <div className="py-8">
+      <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-10">
+        {/* Flyer - fixed size, doesn't stretch */}
+        {item.flyer && (
+          <div className="relative h-64 w-48 shrink-0 overflow-hidden rounded-lg bg-secondary lg:h-72 lg:w-52">
+            <Image
+              src={item.flyer}
+              alt={`${item.title} flyer`}
+              fill
+              className="object-cover"
+            />
+          </div>
+        )}
+        <div className="flex flex-1 flex-col">
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="inline-block rounded-full bg-blue-500/10 px-3 py-1 text-xs font-semibold text-blue-600 dark:text-blue-400">
+              Guest Speaker
+            </span>
+            <span className="text-sm font-semibold text-foreground">
+              {item.timeStart} - {item.timeEnd}
+            </span>
+          </div>
+          <h3 className="mt-4 font-[family-name:var(--font-space-grotesk)] text-xl font-bold text-foreground">
+            {item.title}
+          </h3>
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+            {item.description}
+          </p>
+          
+          {/* Speaker */}
+          {speaker && (
+            <div className="mt-6 border-t border-border">
+              <SpeakerCard speaker={speaker} />
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function PanelItem({ item }: { item: ScheduleItem }) {
+  const speakers = item.speakerIds
+    ? item.speakerIds.map((id) => getSpeakerById(id)).filter(Boolean) as GuestSpeaker[]
+    : []
+
+  return (
+    <div className="py-8">
+      <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-10">
+        {/* Flyer - fixed size, doesn't stretch */}
+        {item.flyer && (
+          <div className="relative h-64 w-48 shrink-0 overflow-hidden rounded-lg bg-secondary lg:h-72 lg:w-52">
+            <Image
+              src={item.flyer}
+              alt={`${item.title} flyer`}
+              fill
+              className="object-cover"
+            />
+          </div>
+        )}
+        <div className="flex flex-1 flex-col">
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="inline-block rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+              Panel Discussion
+            </span>
+            <span className="text-sm font-semibold text-foreground">
+              {item.timeStart} - {item.timeEnd}
+            </span>
+          </div>
+          <h3 className="mt-4 font-[family-name:var(--font-space-grotesk)] text-xl font-bold text-foreground">
+            {item.title}
+          </h3>
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+            {item.description}
+          </p>
+          
+          {/* Panelists */}
+          {speakers.length > 0 && (
+            <div className="mt-6">
+              <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                Panelists
+              </p>
+              <div className="flex flex-col gap-4">
+                {speakers.map((speaker) => (
+                  <SpeakerCard key={speaker.id} speaker={speaker} />
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function ClosingItem({ item }: { item: ScheduleItem }) {
+  return (
+    <div className="py-8">
+      <div className="flex flex-col gap-4 md:flex-row md:items-start md:gap-8">
+        <div className="shrink-0 md:w-40">
+          <span className="inline-block rounded-full bg-foreground/10 px-3 py-1 text-xs font-semibold text-foreground">
+            Closing
+          </span>
+          <p className="mt-2 text-sm font-semibold text-foreground">
+            {item.timeStart} - {item.timeEnd}
+          </p>
+        </div>
+        <div className="flex-1">
+          <h3 className="font-[family-name:var(--font-space-grotesk)] text-xl font-bold text-foreground">
+            {item.title}
+          </h3>
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+            {item.description}
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function ScheduleItemRenderer({ item }: { item: ScheduleItem }) {
+  switch (item.type) {
+    case "tabling-fair":
+      return <TablingFairItem item={item} />
+    case "presentation":
+      return <PresentationItem item={item} />
+    case "panel":
+      return <PanelItem item={item} />
+    case "closing":
+      return <ClosingItem item={item} />
+    default:
+      return null
+  }
+}
+
+// Slideshow Component
 function ConventionSlideshow() {
   const [current, setCurrent] = useState(0)
   const [paused, setPaused] = useState(false)
@@ -118,7 +471,7 @@ function ConventionSlideshow() {
 
   return (
     <div
-      className="relative mt-14 overflow-hidden rounded-2xl border border-border bg-secondary"
+      className="relative overflow-hidden rounded-2xl border border-border bg-secondary"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -177,24 +530,34 @@ function ConventionSlideshow() {
   )
 }
 
+// =============================================================================
+// MAIN PAGE COMPONENT
+// =============================================================================
+
 export default function ConventionPage() {
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation(0.05)
 
   return (
-    <>
-      {/* Hero */}
+    <div className="relative">
+      {/* Marquee Banner */}
+      <MarqueeBanner />
+
+      {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative flex min-h-[70vh] items-center justify-center overflow-hidden"
+        className="relative flex min-h-[85vh] items-center justify-center overflow-hidden"
       >
-        <Image
-          src="/images/convention-bg.jpg"
-          alt=""
-          fill
-          className="object-cover opacity-25"
-          priority
-        />
-        <div className="absolute inset-0 bg-background/50" />
+        {/* Background with gradient fade */}
+        <div className="pointer-events-none absolute inset-0">
+          <Image
+            src="/images/convention-bg.jpg"
+            alt=""
+            fill
+            className="object-cover opacity-20"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
+        </div>
 
         <div
           className={`relative z-10 mx-auto max-w-4xl px-6 text-center transition-all duration-1000 ${
@@ -205,168 +568,131 @@ export default function ConventionPage() {
             Spring 2026
           </p>
           <h1 className="mt-3 font-[family-name:var(--font-space-grotesk)] text-5xl font-bold leading-tight tracking-tight text-foreground md:text-7xl">
-            <span className="text-balance">AI Convention</span>
+            <span className="text-balance">AI Horizons Convention</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-            Our flagship annual event bringing together students, researchers,
-            and industry leaders to explore the frontiers of artificial
-            intelligence.
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            Explore the world of Artificial Intelligence at PCC&apos;s AI Horizons
+            Convention! Join us for a day of tabling fair, guest presentations, and
+            expert panels designed to showcase AI&apos;s real-world applications,
+            educational pathways, and career opportunities. Whether you&apos;re a
+            beginner or looking to advance your skills, this free event is your
+            chance to learn, connect, and discover your next steps in AI.
           </p>
 
+          {/* Date, Time, Location Row */}
           <div className="mx-auto mt-10 flex flex-col items-center justify-center gap-6 sm:flex-row">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground">
               <Calendar className="h-4 w-4 text-accent" />
               <span>April 23, 2026</span>
             </div>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground">
               <Clock className="h-4 w-4 text-accent" />
-              <span>Time To Be Announced</span>
+              <span>10:00 AM - 2:00 PM</span>
             </div>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground">
               <MapPin className="h-4 w-4 text-accent" />
-              <span>Creveling Lounge, Pasadena City College</span>
+              <span>Creveling Lounge, PCC</span>
             </div>
           </div>
 
+          {/* CTA Buttons */}
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.02] active:scale-[0.98]"
-            >
-              Register Interest
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              href="https://artificial-intelligence-club-at-pcc.github.io/aihorizons/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-background"
-            >
-              Revisit 2025 Convention
-              <ChevronRight className="h-4 w-4" />
-            </Link>
+            <Button size="lg" asChild>
+              <Link href="/contact">RSVP Now</Link>
+            </Button>
+            <Button variant="outline" size="lg" asChild>
+              <Link
+                href="https://artificial-intelligence-club-at-pcc.github.io/aihorizons/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Revisit 2025 Convention
+              </Link>
+            </Button>
           </div>
         </div>
+
       </section>
 
-      {/* What to expect */}
+      {/* Separator Line */}
+      <div className="mx-auto max-w-4xl px-6">
+        <div className="h-px w-full bg-border" />
+      </div>
+
+      {/* Event Schedule */}
       <SectionWrapper className="py-20 md:py-28">
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-4xl px-6">
           <div className="text-center">
             <p className="text-sm font-semibold uppercase tracking-wider text-accent">
-              What to Expect
+              Program
             </p>
             <h2 className="mt-2 font-[family-name:var(--font-space-grotesk)] text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-              A Full Day of AI
-            </h2>
-          </div>
-
-          <div className="mt-14 grid gap-8 md:grid-cols-4">
-            <div className="flex flex-col items-center text-center">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-secondary text-accent">
-                <Users className="h-6 w-6" />
-              </div>
-              <h3 className="mt-4 font-[family-name:var(--font-space-grotesk)] text-lg font-bold text-foreground">
-                Tabling Fair
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                Explore booths from campus programs, research labs, student
-                clubs, and industry partners offering internships and graduate
-                opportunities.
-              </p>
-            </div>
-            <div className="flex flex-col items-center text-center">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-secondary text-accent">
-                <Mic2 className="h-6 w-6" />
-              </div>
-              <h3 className="mt-4 font-[family-name:var(--font-space-grotesk)] text-lg font-bold text-foreground">
-                Guest Speakers
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                Hear from leading researchers and industry professionals on the
-                latest breakthroughs in generative AI, responsible deployment,
-                and more.
-              </p>
-            </div>
-            <div className="flex flex-col items-center text-center">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-secondary text-accent">
-                <MessageSquare className="h-6 w-6" />
-              </div>
-              <h3 className="mt-4 font-[family-name:var(--font-space-grotesk)] text-lg font-bold text-foreground">
-                Panel Discussion
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                An engaging conversation with academics and practitioners on the
-                future of AI in industry, academia, and society, with audience
-                Q&A.
-              </p>
-            </div>
-            <div className="flex flex-col items-center text-center">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-secondary text-accent">
-                <CoffeeIcon className="h-6 w-6" />
-              </div>
-              <h3 className="mt-4 font-[family-name:var(--font-space-grotesk)] text-lg font-bold text-foreground">
-                Snacks & Refreshments
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                Enjoy a variety of food, snacks, and beverages throughout the event. Take a break, grab a bite, and network with fellow attendees in a relaxed setting.
-              </p>
-            </div>
-          </div>
-        </div>
-      </SectionWrapper>
-
-      {/* Schedule */}
-      <SectionWrapper className="bg-secondary py-20 md:py-28">
-        <div className="mx-auto max-w-3xl px-6">
-          <div className="text-center">
-            <p className="text-sm font-semibold uppercase tracking-wider text-accent">
               Event Schedule
-            </p>
-            <h2 className="mt-2 font-[family-name:var(--font-space-grotesk)] text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-              The Day at a Glance
             </h2>
             <p className="mx-auto mt-3 max-w-lg text-sm text-muted-foreground">
-              Full schedule coming soon. Check back closer to the event date for
-              confirmed times.
+              A full day of learning, networking, and exploring AI opportunities.
             </p>
           </div>
 
-          <div className="mt-14 flex flex-col gap-0">
-            {schedule.map((item, i) => (
-              <div
-                key={i}
-                className={`flex gap-6 py-6 ${
-                  i < schedule.length - 1 ? "border-b border-border" : ""
-                }`}
-              >
-                <div className="w-40 shrink-0">
-                  <p className="text-sm font-semibold text-muted-foreground">
-                    {item.time}
-                  </p>
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-3">
-                    <h3 className="font-[family-name:var(--font-space-grotesk)] text-base font-bold text-foreground">
-                      {item.title}
-                    </h3>
-                    {item.tag && (
-                      <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-semibold text-accent">
-                        {item.tag}
-                      </span>
-                    )}
+          <div className="mt-14 flex flex-col">
+            {eventSchedule.map((item, i) => (
+              <div key={i}>
+                {i > 0 && (
+                  <div className="relative py-2">
+                    <div className="h-px w-full bg-border" />
+                    <div className="absolute left-0 top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-border" />
                   </div>
-                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                    {item.description}
-                  </p>
-                </div>
+                )}
+                <ScheduleItemRenderer item={item} />
               </div>
             ))}
           </div>
         </div>
       </SectionWrapper>
 
-      {/* Last year's convention */}
+      {/* Collaborators Section */}
+      <SectionWrapper className="bg-secondary py-20 md:py-28">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="text-center">
+            <p className="text-sm font-semibold uppercase tracking-wider text-accent">
+              Partners
+            </p>
+            <h2 className="mt-2 font-[family-name:var(--font-space-grotesk)] text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              Collaborating Organizations
+            </h2>
+            <p className="mx-auto mt-3 max-w-lg text-sm text-muted-foreground">
+              Made possible through collaboration with these amazing clubs and
+              organizations.
+            </p>
+          </div>
+
+          <div className="mt-14 grid grid-cols-2 gap-6 md:grid-cols-4">
+            {collaborators.map((collab) => (
+              <Link
+                key={collab.name}
+                href={collab.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center rounded-xl border border-border bg-card p-6 transition-colors hover:bg-accent/5"
+              >
+                <div className="relative h-16 w-full">
+                  <Image
+                    src={collab.logo}
+                    alt={collab.name}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <p className="mt-3 text-sm font-medium text-foreground">
+                  {collab.name}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </SectionWrapper>
+
+      {/* Looking Back Section */}
       <SectionWrapper className="py-20 md:py-28">
         <div className="mx-auto max-w-5xl px-6">
           <div className="text-center">
@@ -376,15 +702,10 @@ export default function ConventionPage() {
             <h2 className="mt-2 font-[family-name:var(--font-space-grotesk)] text-3xl font-bold tracking-tight text-foreground md:text-4xl">
               Spring 2025 Convention
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-              Our inaugural AI Convention brought the campus community together
-              for a day of learning, networking, and inspiration. Here is what
-              we accomplished.
-            </p>
           </div>
 
           {/* Stats */}
-          <div className="mt-14 grid grid-cols-2 gap-8 md:grid-cols-4">
+          <div className="mt-10 grid grid-cols-2 gap-6 md:grid-cols-4">
             {highlights2025.map((h) => (
               <div key={h.label} className="text-center">
                 <p className="font-[family-name:var(--font-space-grotesk)] text-4xl font-bold text-foreground">
@@ -396,49 +717,21 @@ export default function ConventionPage() {
           </div>
 
           {/* Slideshow */}
-          <ConventionSlideshow />
+          <div className="mt-10">
+            <ConventionSlideshow />
+          </div>
 
-          <div className="mx-auto mt-14 max-w-2xl">
+          <div className="mx-auto mt-10 max-w-2xl text-center">
             <p className="text-base leading-relaxed text-muted-foreground">
-              The 2025 convention featured keynotes on foundation models and
-              responsible AI, a tabling fair with over 15 organizations
-              representing research labs, graduate programs, and tech companies,
-              and a lively panel on the intersection of AI and society. It set
-              the bar for what we are building again this year, bigger and
-              better.
+              Our inaugural AI Horizons Convention brought the campus community
+              together for a day of learning, networking, and inspiration. The event
+              featured keynotes on foundation models and responsible AI, a tabling
+              fair with over 15 organizations, and lively panel discussions on AI
+              and society.
             </p>
           </div>
         </div>
       </SectionWrapper>
-
-      {/* CTA */}
-      <SectionWrapper className="bg-secondary py-20 md:py-28">
-        <div className="mx-auto max-w-3xl px-6 text-center">
-          <h2 className="font-[family-name:var(--font-space-grotesk)] text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-            Be Part of AI Convention 2026
-          </h2>
-          <p className="mx-auto mt-3 max-w-lg text-base leading-relaxed text-muted-foreground">
-            Whether you want to attend, speak, or table, we would love to have
-            you. Reach out to get involved.
-          </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.02] active:scale-[0.98]"
-            >
-              Get Involved
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              href="/events"
-              className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-background"
-            >
-              View All Events
-              <ChevronRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </SectionWrapper>
-    </>
+    </div>
   )
 }
