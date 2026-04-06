@@ -25,7 +25,7 @@ const guestSpeakers: GuestSpeaker[] = [
     id: "speaker-1",
     name: "Speaker Name",
     title: "Job Title",
-    bio: "Brief bio about the speaker and their expertise in AI...",
+    bio: "Brief bio about the speaker and their expertise in AI. This speaker has extensive experience in the field and has contributed to numerous projects. They are passionate about education and helping students discover opportunities in AI.",
     image: "/convention/speakers/placeholder.jpg", // Add speaker photo
     linkedin: "https://linkedin.com/in/username",
     companyLogos: ["/convention/logos/company1.png"], // Add company logos
@@ -34,7 +34,7 @@ const guestSpeakers: GuestSpeaker[] = [
     id: "speaker-2",
     name: "Speaker Name",
     title: "Job Title",
-    bio: "Brief bio about the speaker and their expertise in AI...",
+    bio: "Brief bio about the speaker and their expertise in AI. This speaker has extensive experience in the field and has contributed to numerous projects. They are passionate about education and helping students discover opportunities in AI.",
     image: "/convention/speakers/placeholder.jpg",
     linkedin: "https://linkedin.com/in/username",
     companyLogos: ["/convention/logos/company2.png"],
@@ -43,7 +43,7 @@ const guestSpeakers: GuestSpeaker[] = [
     id: "speaker-3",
     name: "Speaker Name",
     title: "Job Title",
-    bio: "Brief bio about the speaker and their expertise in AI...",
+    bio: "Brief bio about the speaker and their expertise in AI. This speaker has extensive experience in the field and has contributed to numerous projects. They are passionate about education and helping students discover opportunities in AI.",
     image: "/convention/speakers/placeholder.jpg",
     linkedin: "https://linkedin.com/in/username",
     companyLogos: ["/convention/logos/company3.png"],
@@ -52,7 +52,7 @@ const guestSpeakers: GuestSpeaker[] = [
     id: "speaker-4",
     name: "Speaker Name",
     title: "Job Title",
-    bio: "Brief bio about the speaker and their expertise in AI...",
+    bio: "Brief bio about the speaker and their expertise in AI. This speaker has extensive experience in the field and has contributed to numerous projects. They are passionate about education and helping students discover opportunities in AI.",
     image: "/convention/speakers/placeholder.jpg",
     linkedin: "https://linkedin.com/in/username",
     companyLogos: ["/convention/logos/company4.png"],
@@ -227,15 +227,12 @@ function MarqueeBanner() {
   )
 }
 
-// Speaker Card Component
-function SpeakerCard({ speaker, compact = false }: { speaker: GuestSpeaker; compact?: boolean }) {
+// Speaker Card Component - Full size for presentations/panels
+function SpeakerCard({ speaker }: { speaker: GuestSpeaker }) {
   return (
-    <div className={`flex ${compact ? "flex-row items-center gap-3" : "flex-col items-center text-center"}`}>
-      <div
-        className={`relative overflow-hidden rounded-full bg-secondary ${
-          compact ? "h-12 w-12 shrink-0" : "h-24 w-24"
-        }`}
-      >
+    <div className="flex flex-col gap-4 py-6 sm:flex-row sm:gap-6">
+      {/* Speaker Photo */}
+      <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-xl bg-secondary sm:h-40 sm:w-40">
         <Image
           src={speaker.image}
           alt={speaker.name}
@@ -243,42 +240,46 @@ function SpeakerCard({ speaker, compact = false }: { speaker: GuestSpeaker; comp
           className="object-cover"
         />
       </div>
-      <div className={compact ? "" : "mt-3"}>
-        <div className="flex items-center gap-2">
-          <h4 className={`font-semibold text-foreground ${compact ? "text-sm" : "text-base"}`}>
+      
+      {/* Speaker Info */}
+      <div className="flex flex-1 flex-col">
+        <div className="flex flex-wrap items-center gap-3">
+          <h4 className="text-lg font-semibold text-foreground sm:text-xl">
             {speaker.name}
           </h4>
           <Link
             href={speaker.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-accent hover:text-accent/80"
+            className="text-accent hover:text-accent/80 transition-colors"
+            aria-label={`${speaker.name}'s LinkedIn profile`}
           >
-            <Linkedin className="h-4 w-4" />
+            <Linkedin className="h-5 w-5" />
           </Link>
         </div>
-        <p className={`text-muted-foreground ${compact ? "text-xs" : "text-sm"}`}>
+        
+        <p className="mt-1 text-sm font-medium text-muted-foreground">
           {speaker.title}
         </p>
-        {!compact && (
-          <>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              {speaker.bio}
-            </p>
-            <div className="mt-3 flex items-center justify-center gap-2">
-              {speaker.companyLogos.map((logo, i) => (
-                <div key={i} className="relative h-6 w-16">
-                  <Image
-                    src={logo}
-                    alt="Company logo"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              ))}
+        
+        {/* Company Logos */}
+        <div className="mt-3 flex flex-wrap items-center gap-3">
+          {speaker.companyLogos.map((logo, i) => (
+            <div key={i} className="relative h-8 w-20">
+              <Image
+                src={logo}
+                alt="Company logo"
+                fill
+                className="object-contain object-left"
+              />
             </div>
-          </>
-        )}
+          ))}
+        </div>
+        
+        {/* Bio */}
+        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+          {speaker.bio}
+        </p>
       </div>
     </div>
   )
@@ -287,9 +288,9 @@ function SpeakerCard({ speaker, compact = false }: { speaker: GuestSpeaker; comp
 // Schedule Item Components
 function TablingFairItem({ item }: { item: ScheduleItem }) {
   return (
-    <div className="rounded-xl border border-border bg-card p-6">
-      <div className="flex flex-col gap-4 md:flex-row md:items-start md:gap-6">
-        <div className="shrink-0">
+    <div className="py-8">
+      <div className="flex flex-col gap-4 md:flex-row md:items-start md:gap-8">
+        <div className="shrink-0 md:w-40">
           <span className="inline-block rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
             Tabling Fair
           </span>
@@ -298,10 +299,10 @@ function TablingFairItem({ item }: { item: ScheduleItem }) {
           </p>
         </div>
         <div className="flex-1">
-          <h3 className="font-[family-name:var(--font-space-grotesk)] text-lg font-bold text-foreground">
+          <h3 className="font-[family-name:var(--font-space-grotesk)] text-xl font-bold text-foreground">
             {item.title}
           </h3>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
             {item.description}
           </p>
         </div>
@@ -314,11 +315,11 @@ function PresentationItem({ item }: { item: ScheduleItem }) {
   const speaker = item.speakerId ? getSpeakerById(item.speakerId) : null
 
   return (
-    <div className="rounded-xl border border-border bg-card p-6">
-      <div className="flex flex-col gap-6 lg:flex-row">
-        {/* Flyer placeholder */}
+    <div className="py-8">
+      <div className="flex flex-col gap-6 lg:flex-row lg:gap-10">
+        {/* Flyer */}
         {item.flyer && (
-          <div className="relative aspect-[3/4] w-full shrink-0 overflow-hidden rounded-lg bg-secondary lg:w-48">
+          <div className="relative aspect-[3/4] w-full shrink-0 overflow-hidden rounded-lg bg-secondary lg:w-56">
             <Image
               src={item.flyer}
               alt={`${item.title} flyer`}
@@ -328,7 +329,7 @@ function PresentationItem({ item }: { item: ScheduleItem }) {
           </div>
         )}
         <div className="flex flex-1 flex-col">
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap items-center gap-3">
             <span className="inline-block rounded-full bg-blue-500/10 px-3 py-1 text-xs font-semibold text-blue-600 dark:text-blue-400">
               Guest Speaker
             </span>
@@ -336,15 +337,17 @@ function PresentationItem({ item }: { item: ScheduleItem }) {
               {item.timeStart} - {item.timeEnd}
             </span>
           </div>
-          <h3 className="mt-3 font-[family-name:var(--font-space-grotesk)] text-lg font-bold text-foreground">
+          <h3 className="mt-4 font-[family-name:var(--font-space-grotesk)] text-xl font-bold text-foreground">
             {item.title}
           </h3>
-          <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
             {item.description}
           </p>
+          
+          {/* Speaker */}
           {speaker && (
-            <div className="mt-4 border-t border-border pt-4">
-              <SpeakerCard speaker={speaker} compact />
+            <div className="mt-6 border-t border-border">
+              <SpeakerCard speaker={speaker} />
             </div>
           )}
         </div>
@@ -359,11 +362,11 @@ function PanelItem({ item }: { item: ScheduleItem }) {
     : []
 
   return (
-    <div className="rounded-xl border border-border bg-card p-6">
-      <div className="flex flex-col gap-6 lg:flex-row">
-        {/* Flyer placeholder */}
+    <div className="py-8">
+      <div className="flex flex-col gap-6 lg:flex-row lg:gap-10">
+        {/* Flyer */}
         {item.flyer && (
-          <div className="relative aspect-[3/4] w-full shrink-0 overflow-hidden rounded-lg bg-secondary lg:w-48">
+          <div className="relative aspect-[3/4] w-full shrink-0 overflow-hidden rounded-lg bg-secondary lg:w-56">
             <Image
               src={item.flyer}
               alt={`${item.title} flyer`}
@@ -373,28 +376,30 @@ function PanelItem({ item }: { item: ScheduleItem }) {
           </div>
         )}
         <div className="flex flex-1 flex-col">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="inline-block rounded-full bg-purple-500/10 px-3 py-1 text-xs font-semibold text-purple-600 dark:text-purple-400">
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="inline-block rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
               Panel Discussion
             </span>
             <span className="text-sm font-semibold text-foreground">
               {item.timeStart} - {item.timeEnd}
             </span>
           </div>
-          <h3 className="mt-3 font-[family-name:var(--font-space-grotesk)] text-lg font-bold text-foreground">
+          <h3 className="mt-4 font-[family-name:var(--font-space-grotesk)] text-xl font-bold text-foreground">
             {item.title}
           </h3>
-          <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
             {item.description}
           </p>
+          
+          {/* Panelists */}
           {speakers.length > 0 && (
-            <div className="mt-4 border-t border-border pt-4">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            <div className="mt-6">
+              <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                 Panelists
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="divide-y divide-border">
                 {speakers.map((speaker) => (
-                  <SpeakerCard key={speaker.id} speaker={speaker} compact />
+                  <SpeakerCard key={speaker.id} speaker={speaker} />
                 ))}
               </div>
             </div>
@@ -407,9 +412,9 @@ function PanelItem({ item }: { item: ScheduleItem }) {
 
 function ClosingItem({ item }: { item: ScheduleItem }) {
   return (
-    <div className="rounded-xl border border-border bg-card p-6">
-      <div className="flex flex-col gap-4 md:flex-row md:items-start md:gap-6">
-        <div className="shrink-0">
+    <div className="py-8">
+      <div className="flex flex-col gap-4 md:flex-row md:items-start md:gap-8">
+        <div className="shrink-0 md:w-40">
           <span className="inline-block rounded-full bg-foreground/10 px-3 py-1 text-xs font-semibold text-foreground">
             Closing
           </span>
@@ -418,10 +423,10 @@ function ClosingItem({ item }: { item: ScheduleItem }) {
           </p>
         </div>
         <div className="flex-1">
-          <h3 className="font-[family-name:var(--font-space-grotesk)] text-lg font-bold text-foreground">
+          <h3 className="font-[family-name:var(--font-space-grotesk)] text-xl font-bold text-foreground">
             {item.title}
           </h3>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
             {item.description}
           </p>
         </div>
@@ -607,9 +612,12 @@ export default function ConventionPage() {
           </div>
         </div>
 
-        {/* Bottom fade gradient */}
-        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </section>
+
+      {/* Separator Line */}
+      <div className="mx-auto max-w-4xl px-6">
+        <div className="h-px w-full bg-border" />
+      </div>
 
       {/* Event Schedule */}
       <SectionWrapper className="py-20 md:py-28">
@@ -626,9 +634,12 @@ export default function ConventionPage() {
             </p>
           </div>
 
-          <div className="mt-14 flex flex-col gap-6">
+          <div className="mt-14 flex flex-col">
             {eventSchedule.map((item, i) => (
-              <ScheduleItemRenderer key={i} item={item} />
+              <div key={i}>
+                {i > 0 && <div className="h-px w-full bg-border" />}
+                <ScheduleItemRenderer item={item} />
+              </div>
             ))}
           </div>
         </div>
@@ -716,9 +727,6 @@ export default function ConventionPage() {
           </div>
         </div>
       </SectionWrapper>
-
-      {/* Top fade overlay */}
-      <div className="pointer-events-none fixed top-0 left-0 right-0 z-40 h-24 bg-gradient-to-b from-background to-transparent opacity-60" />
     </div>
   )
 }
