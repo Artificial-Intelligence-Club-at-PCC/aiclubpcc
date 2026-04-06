@@ -230,7 +230,7 @@ function MarqueeBanner() {
 // Speaker Card Component - Full size for presentations/panels
 function SpeakerCard({ speaker }: { speaker: GuestSpeaker }) {
   return (
-    <div className="flex flex-col gap-4 py-6 sm:flex-row sm:gap-6">
+    <div className="flex flex-col gap-4 pt-4 sm:flex-row sm:gap-6">
       {/* Speaker Photo */}
       <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-xl bg-secondary sm:h-40 sm:w-40">
         <Image
@@ -316,10 +316,10 @@ function PresentationItem({ item }: { item: ScheduleItem }) {
 
   return (
     <div className="py-8">
-      <div className="flex flex-col gap-6 lg:flex-row lg:gap-10">
-        {/* Flyer */}
+      <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-10">
+        {/* Flyer - fixed size, doesn't stretch */}
         {item.flyer && (
-          <div className="relative aspect-[3/4] w-full shrink-0 overflow-hidden rounded-lg bg-secondary lg:w-56">
+          <div className="relative h-64 w-48 shrink-0 overflow-hidden rounded-lg bg-secondary lg:h-72 lg:w-52">
             <Image
               src={item.flyer}
               alt={`${item.title} flyer`}
@@ -363,10 +363,10 @@ function PanelItem({ item }: { item: ScheduleItem }) {
 
   return (
     <div className="py-8">
-      <div className="flex flex-col gap-6 lg:flex-row lg:gap-10">
-        {/* Flyer */}
+      <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-10">
+        {/* Flyer - fixed size, doesn't stretch */}
         {item.flyer && (
-          <div className="relative aspect-[3/4] w-full shrink-0 overflow-hidden rounded-lg bg-secondary lg:w-56">
+          <div className="relative h-64 w-48 shrink-0 overflow-hidden rounded-lg bg-secondary lg:h-72 lg:w-52">
             <Image
               src={item.flyer}
               alt={`${item.title} flyer`}
@@ -397,7 +397,7 @@ function PanelItem({ item }: { item: ScheduleItem }) {
               <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                 Panelists
               </p>
-              <div className="divide-y divide-border">
+              <div className="flex flex-col gap-4">
                 {speakers.map((speaker) => (
                   <SpeakerCard key={speaker.id} speaker={speaker} />
                 ))}
@@ -637,7 +637,12 @@ export default function ConventionPage() {
           <div className="mt-14 flex flex-col">
             {eventSchedule.map((item, i) => (
               <div key={i}>
-                {i > 0 && <div className="h-px w-full bg-border" />}
+                {i > 0 && (
+                  <div className="relative py-2">
+                    <div className="h-px w-full bg-border" />
+                    <div className="absolute left-0 top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-border" />
+                  </div>
+                )}
                 <ScheduleItemRenderer item={item} />
               </div>
             ))}
