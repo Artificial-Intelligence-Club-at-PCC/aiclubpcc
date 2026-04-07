@@ -92,6 +92,14 @@ const pastEvents = [
     description: "Members showcased their projects and collaborated with two other clubs in a joint end-of-semester celebration of the work done throughout the semester.",
     type: "Showcase",
   },
+  {
+    title: "Guest Speaker: Evan Chou",
+    date: "March 26, 2025",
+    time: "12:00 PM – 1:00 PM",
+    location: "R206, Pasadena City College",
+    description: "Evan Chou, former Co-founder & AI Club President, UCSD Transfer, and 2x AI/ML Engineering Intern at NASA JPL, will be sharing his experience building real-world AI/ML projects, and practical career advice.",
+    type: "Speaker",
+  },
 ]
 
 const typeColors: Record<string, string> = {

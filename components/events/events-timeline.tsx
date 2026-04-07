@@ -6,19 +6,11 @@ import Link from "next/link"
 
 const upcomingEvents = [
   {
-    title: "Guest Speaker: Evan Chou",
-    date: "March 26, 2025",
-    time: "12:00 PM – 1:00 PM",
-    location: "R206, Pasadena City College",
-    description: "Evan Chou, former Co-founder & AI Club President, UCSD Transfer, and 2x AI/ML Engineering Intern at NASA JPL, will be sharing his experience building real-world AI/ML projects, and practical career advice.",
-    type: "Speaker",
-  },
-  {
-    title: "AI Convention 2026",
+    title: "AI Horizons Convention 2026",
     date: "April 23, 2026",
-    time: "To Be Announced",
+    time: "11:00 AM - 5:30 PM",
     location: "Creveling Lounge, Pasadena City College",
-    description: "Our annual AI Convention is back! More details on schedule, speakers, and activities coming soon. Save the date.",
+    description: "Our AI Horizons Convention is back! More details on schedule, speakers, and activities coming soon. Save the date.",
     type: "Convention",
   },
   // {
