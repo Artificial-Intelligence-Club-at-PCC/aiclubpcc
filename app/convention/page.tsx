@@ -23,39 +23,112 @@ import { Button } from "@/components/ui/button"
 const guestSpeakers: GuestSpeaker[] = [
   {
     id: "speaker-1",
-    name: "Speaker Name",
-    title: "Job Title",
-    bio: "Brief bio about the speaker and their expertise in AI. This speaker has extensive experience in the field and has contributed to numerous projects. They are passionate about education and helping students discover opportunities in AI.",
-    image: "/convention/speakers/placeholder.jpg", // Add speaker photo
-    linkedin: "https://linkedin.com/in/username",
-    companyLogos: ["/convention/logos/company1.png"], // Add company logos
+    name: "Michael Krauser",
+    title: "AI Instructor at Caltech",
+    bio: "",
+    image: "/convention/speakers/placeholder.png",
+    linkedin: "https://www.linkedin.com/in/mike-krause-ai25",
+    companyLogos: ["/convention/logos/caltech.png"],
   },
   {
     id: "speaker-2",
-    name: "Speaker Name",
-    title: "Job Title",
-    bio: "Brief bio about the speaker and their expertise in AI. This speaker has extensive experience in the field and has contributed to numerous projects. They are passionate about education and helping students discover opportunities in AI.",
-    image: "/convention/speakers/placeholder.jpg",
-    linkedin: "https://linkedin.com/in/username",
-    companyLogos: ["/convention/logos/company2.png"],
+    name: "Katie Hughes",
+    title: "Senior Product Designer at Meta",
+    bio: "",
+    image: "/convention/speakers/placeholder.png",
+    linkedin: "https://www.linkedin.com/in/hughezilla",
+    companyLogos: ["/convention/logos/meta.png"],
   },
   {
     id: "speaker-3",
-    name: "Speaker Name",
-    title: "Job Title",
-    bio: "Brief bio about the speaker and their expertise in AI. This speaker has extensive experience in the field and has contributed to numerous projects. They are passionate about education and helping students discover opportunities in AI.",
-    image: "/convention/speakers/placeholder.jpg",
-    linkedin: "https://linkedin.com/in/username",
-    companyLogos: ["/convention/logos/company3.png"],
+    name: "Peng Guo",
+    title: "AR Engineer at Snap Inc.",
+    bio: "",
+    image: "/convention/speakers/placeholder.png",
+    linkedin: "https://www.linkedin.com/in/eric-peng-guo",
+    companyLogos: ["/convention/logos/snap.png"],
   },
   {
     id: "speaker-4",
-    name: "Speaker Name",
-    title: "Job Title",
-    bio: "Brief bio about the speaker and their expertise in AI. This speaker has extensive experience in the field and has contributed to numerous projects. They are passionate about education and helping students discover opportunities in AI.",
-    image: "/convention/speakers/placeholder.jpg",
+    name: "Krys Blackwood",
+    title: "Principal UX Designer at NASA JPL",
+    bio: "",
+    image: "/convention/speakers/placeholder.png",
+    linkedin: "https://www.linkedin.com/in/krysblackwood",
+    companyLogos: ["/convention/logos/jpl.png"],
+  },
+  {
+    id: "speaker-5",
+    name: "Junyi Chai",
+    title: "Principal Applied Scientist at Microsoft",
+    bio: "",
+    image: "/convention/speakers/placeholder.png",
+    linkedin: "https://www.linkedin.com/in/junyi-chai-174a1ba3",
+    companyLogos: ["/convention/logos/microsoft.png"],
+  },
+  {
+    id: "speaker-6",
+    name: "TBA",
+    title: "TBA",
+    bio: "",
+    image: "/convention/speakers/placeholder.png",
     linkedin: "https://linkedin.com/in/username",
-    companyLogos: ["/convention/logos/company4.png"],
+    companyLogos: ["/convention/logos/placeholder.png"],
+  },
+  {
+    id: "speaker-7",
+    name: "Rita Sargsyan",
+    title: "AI LA IDEAS Program Director",
+    bio: "",
+    image: "/convention/speakers/placeholder.png",
+    linkedin: "https://www.linkedin.com/in/ritasargsyan",
+    companyLogos: ["/convention/logos/aila.png"],
+  },
+  {
+    id: "speaker-8",
+    name: "Rafal Kocielnik",
+    title: "AI Research Scientist (Surgical AI) at Cedars-Sinai",
+    bio: "",
+    image: "/convention/speakers/placeholder.png",
+    linkedin: "https://www.linkedin.com/in/rkocielnik/",
+    companyLogos: ["/convention/logos/cedarssinai.png"],
+  },
+  {
+    id: "speaker-9",
+    name: "Rick Hefner",
+    title: "Executive Director at Caltech CTME",
+    bio: "",
+    image: "/convention/speakers/placeholder.png",
+    linkedin: "https://www.linkedin.com/in/rickhefner",
+    companyLogos: ["/convention/logos/caltech.png"],
+  },
+  {
+    id: "speaker-10",
+    name: "TBA",
+    title: "TBA",
+    bio: "",
+    image: "/convention/speakers/placeholder.png",
+    linkedin: "https://linkedin.com/in/username",
+    companyLogos: ["/convention/logos/placeholder.png"],
+  },
+]
+
+// Moderators - Add/edit speakers here
+const moderators: Moderator[] = [
+  {
+    id: "moderator-1",
+    name: "Shin Aung",
+    title: "AI Club President & Lead Organizer",
+    bio: "",
+    image: "/convention/speakers/placeholder.png",
+    linkedin: "https://linkedin.com/in/shin-htet",
+  },
+  {
+    id: "moderator-2",
+    name: "Jamal Ashraf",
+    title: "PCC Faculty, AI Club Advisor",
+    bio: "",
+    image: "/convention/speakers/placeholder.png",
   },
 ]
 
@@ -63,44 +136,56 @@ const guestSpeakers: GuestSpeaker[] = [
 const eventSchedule: ScheduleItem[] = [
   {
     type: "tabling-fair",
-    timeStart: "10:00 AM",
-    timeEnd: "2:00 PM",
+    timeStart: "11:00 AM",
+    timeEnd: "1:00 PM",
     title: "Career, Programs, and Internships Fair",
     description:
       "Explore booths from campus programs, research labs, student clubs, and industry partners offering internships and opportunities.",
   },
   {
     type: "presentation",
-    timeStart: "11:00 AM",
-    timeEnd: "11:30 AM",
-    title: "Presentation Title TBA",
-    description: "Description of the presentation topic and what attendees will learn...",
+    timeStart: "1:00 PM",
+    timeEnd: "1:45 PM",
+    title: "AI Explained - From Hype to Reality (Official Title TBA)",
+    description: "TBA: Hear from a leading researcher or industry professional on cutting-edge AI developments, trends, and applications. Gain insights from expert perspectives in AI research and industry practice.",
     speakerId: "speaker-1",
-    flyer: "/convention/flyers/presentation1.jpg", // Add flyer image
+    flyer: "/convention/flyers/placeholder.png",
   },
   {
     type: "presentation",
-    timeStart: "11:45 AM",
-    timeEnd: "12:15 PM",
-    title: "Presentation Title TBA",
-    description: "Description of the presentation topic and what attendees will learn...",
+    timeStart: "2:00 PM",
+    timeEnd: "2:45 PM",
+    title: "AI in User Experience (Official Title TBA)",
+    description: "TBA: Hear from a leading researcher or industry professional on cutting-edge AI developments, trends, and applications. Gain insights from expert perspectives in AI research and industry practice.",
     speakerId: "speaker-2",
-    flyer: "/convention/flyers/presentation2.jpg",
+    flyer: "/convention/flyers/placeholder.png",
   },
   {
     type: "panel",
-    timeStart: "12:30 PM",
-    timeEnd: "1:15 PM",
-    title: "Panel Discussion Title TBA",
+    timeStart: "3:00 PM",
+    timeEnd: "3:50 PM",
+    title: "AI in Industry and Real-World Deployment",
     description:
-      "An interactive discussion with academics, industry professionals, and practitioners on the future of AI, ethical considerations, and real-world applications.",
-    speakerIds: ["speaker-1", "speaker-2", "speaker-3", "speaker-4"],
-    flyer: "/convention/flyers/panel1.jpg",
+      "This panel explores how AI is applied in real-world settings across industries, highlighting the challenges of scaling AI systems, integrating them into existing workflows, and achieving measurable impact. Discussions will include lessons learned from practical deployments and insights on translating AI research into everyday solutions.",
+    moderatorIds: ["moderator-1"],
+    speakerIds: ["speaker-3", "speaker-4", "speaker-5", "speaker-6"],
+    flyer: "/convention/flyers/placeholder.png",
+  },
+  {
+    type: "panel",
+    timeStart: "4:00 PM",
+    timeEnd: "4:50 PM",
+    title: "AI in Research, Academia, and Future Directions",
+    description:
+      "Exploring advances in AI research and academic work, this panel will highlight emerging trends, ongoing challenges, and the future directions shaping the field. Discussions will cover ethical considerations, societal impact, and how research in academia connects with broader technological innovation.",
+    moderatorIds: ["moderator-2"],
+    speakerIds: ["speaker-7", "speaker-8", "speaker-9", "speaker-10"],
+    flyer: "/convention/flyers/placeholder.png",
   },
   {
     type: "closing",
-    timeStart: "1:30 PM",
-    timeEnd: "2:00 PM",
+    timeStart: "5:00 PM",
+    timeEnd: "5:30 PM",
     title: "Closing Remarks & Networking",
     description:
       "Wrap-up, acknowledgements, recognition of contributors, and open networking session.",
@@ -109,10 +194,15 @@ const eventSchedule: ScheduleItem[] = [
 
 // Collaborating Clubs/Organizations
 const collaborators: Collaborator[] = [
-  { name: "Organization 1", logo: "/convention/collaborators/org1.png", url: "#" },
-  { name: "Organization 2", logo: "/convention/collaborators/org2.png", url: "#" },
-  { name: "Organization 3", logo: "/convention/collaborators/org3.png", url: "#" },
-  { name: "Organization 4", logo: "/convention/collaborators/org4.png", url: "#" },
+  { name: "Decoded Brain", logo: "/convention/logos/decodedbrain.png", url: "https://research.decodedbrain.net/" },
+  { name: "She.Codes", logo: "/convention/logos/shecodes.png", url: "https://lancerlife.pasadena.edu/organization/shecodes" },
+  { name: "Data Science Club", logo: "/convention/logos/datascienceclub.png", url: "https://lancerlife.pasadena.edu/organization/datascienceclub" },
+  // { name: "Pi Club", logo: "/convention/logos/piclub.png", url: "#" },
+  { name: "AI LA IDEAS Program", logo: "/convention/logos/aila.png", url: "https://www.joinai.la/" },
+  // { name: "STEM Advantage", logo: "/convention/logos/stemadvantage.png", url: "https://stemadvantage.org/" },
+  { name: "Autodesk", logo: "/convention/logos/autodesk.png", url: "https://www.autodesk.com/" },
+  { name: "MESA", logo: "/convention/logos/mesa.png", url: "https://pasadena.edu/academics/support/mesa/index.php" },
+  { name: "JPL STEM Engagement", logo: "/convention/logos/jpl.png", url: "https://www.jpl.nasa.gov/edu/about-jpl-education/" },
 ]
 
 // 2025 Convention Photos
@@ -147,7 +237,7 @@ const conventionPhotos = [
 ]
 
 const highlights2025 = [
-  { stat: "200+", label: "Attendees" },
+  { stat: "150+", label: "Attendees" },
   { stat: "15", label: "Clubs & Career Programs" },
   { stat: "9", label: "Guest Speakers" },
   { stat: "2", label: "Panel Discussions" },
@@ -167,6 +257,15 @@ interface GuestSpeaker {
   companyLogos: string[]
 }
 
+interface Moderator {
+  id: string
+  name: string
+  title: string
+  bio: string
+  image: string
+  linkedin?: string
+}
+
 interface ScheduleItem {
   type: "tabling-fair" | "presentation" | "panel" | "closing"
   timeStart: string
@@ -175,6 +274,7 @@ interface ScheduleItem {
   description: string
   speakerId?: string
   speakerIds?: string[]
+  moderatorIds?: string[]
   flyer?: string
 }
 
@@ -190,6 +290,10 @@ interface Collaborator {
 
 function getSpeakerById(id: string): GuestSpeaker | undefined {
   return guestSpeakers.find((s) => s.id === id)
+}
+
+function getModeratorById(id: string): Moderator | undefined {
+  return moderators.find((s) => s.id === id)
 }
 
 // =============================================================================
@@ -210,7 +314,7 @@ function MarqueeBanner() {
           </span>
         ))}
       </div>
-      <style jsx>{`
+      <style>{`
         @keyframes marquee {
           0% {
             transform: translateX(0%);
@@ -220,7 +324,7 @@ function MarqueeBanner() {
           }
         }
         .animate-marquee {
-          animation: marquee 30s linear infinite;
+          animation: marquee 60s linear infinite;
         }
       `}</style>
     </div>
@@ -232,7 +336,7 @@ function SpeakerCard({ speaker }: { speaker: GuestSpeaker }) {
   return (
     <div className="flex flex-col gap-4 pt-4 sm:flex-row sm:gap-6">
       {/* Speaker Photo */}
-      <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-xl bg-secondary sm:h-40 sm:w-40">
+      <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-none bg-secondary sm:h-40 sm:w-40">
         <Image
           src={speaker.image}
           alt={speaker.name}
@@ -265,7 +369,7 @@ function SpeakerCard({ speaker }: { speaker: GuestSpeaker }) {
         {/* Company Logos */}
         <div className="mt-3 flex flex-wrap items-center gap-3">
           {speaker.companyLogos.map((logo, i) => (
-            <div key={i} className="relative h-8 w-20">
+            <div key={i} className="relative h-12 w-28">
               <Image
                 src={logo}
                 alt="Company logo"
@@ -279,6 +383,53 @@ function SpeakerCard({ speaker }: { speaker: GuestSpeaker }) {
         {/* Bio */}
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
           {speaker.bio}
+        </p>
+      </div>
+    </div>
+  )
+}
+
+// Moderator Card Component - Full size for presentations/panels
+function ModeratorCard({ moderator }: { moderator: Moderator }) {
+  return (
+    <div className="flex flex-col gap-4 pt-4 sm:flex-row sm:gap-6">
+      {/* Moderator Photo */}
+      <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-none bg-secondary sm:h-40 sm:w-40">
+        <Image
+          src={moderator.image}
+          alt={moderator.name}
+          fill
+          className="object-cover"
+        />
+      </div>
+      
+     {/* Speaker Info */}
+      <div className="flex flex-1 flex-col">
+        <div className="flex flex-wrap items-center gap-3">
+          <h4 className="text-lg font-semibold text-foreground sm:text-xl">
+            {moderator.name}
+          </h4>
+
+          {moderator.linkedin && (
+            <Link
+              href={moderator.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent hover:text-accent/80 transition-colors"
+              aria-label={`${moderator.name}'s LinkedIn profile`}
+            >
+              <Linkedin className="h-5 w-5" />
+            </Link>
+          )}
+        </div>
+        
+        <p className="mt-1 text-sm font-medium text-muted-foreground">
+          {moderator.title}
+        </p>
+        
+        {/* Bio */}
+        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+          {moderator.bio}
         </p>
       </div>
     </div>
@@ -319,7 +470,7 @@ function PresentationItem({ item }: { item: ScheduleItem }) {
       <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-10">
         {/* Flyer - fixed size, doesn't stretch */}
         {item.flyer && (
-          <div className="relative h-64 w-48 shrink-0 overflow-hidden rounded-lg bg-secondary lg:h-72 lg:w-52">
+          <div className="relative h-64 w-48 shrink-0 overflow-hidden rounded-none bg-secondary lg:h-72 lg:w-52">
             <Image
               src={item.flyer}
               alt={`${item.title} flyer`}
@@ -357,8 +508,13 @@ function PresentationItem({ item }: { item: ScheduleItem }) {
 }
 
 function PanelItem({ item }: { item: ScheduleItem }) {
+
   const speakers = item.speakerIds
-    ? item.speakerIds.map((id) => getSpeakerById(id)).filter(Boolean) as GuestSpeaker[]
+    ? item.speakerIds.map((id) => getSpeakerById(id))
+      .filter((speaker): speaker is GuestSpeaker => !!speaker && speaker.name !== "TBA")
+    : [];
+  const moderators = item.moderatorIds
+    ? item.moderatorIds.map((id) => getModeratorById(id)).filter(Boolean) as Moderator[]
     : []
 
   return (
@@ -366,7 +522,7 @@ function PanelItem({ item }: { item: ScheduleItem }) {
       <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-10">
         {/* Flyer - fixed size, doesn't stretch */}
         {item.flyer && (
-          <div className="relative h-64 w-48 shrink-0 overflow-hidden rounded-lg bg-secondary lg:h-72 lg:w-52">
+          <div className="relative h-64 w-48 shrink-0 overflow-hidden rounded-none bg-secondary lg:h-72 lg:w-52">
             <Image
               src={item.flyer}
               alt={`${item.title} flyer`}
@@ -390,7 +546,19 @@ function PanelItem({ item }: { item: ScheduleItem }) {
           <p className="mt-3 text-base leading-relaxed text-muted-foreground">
             {item.description}
           </p>
-          
+          {/* Moderator */}
+          {moderators.length > 0 && (
+            <div className="mt-6">
+              <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                Moderator
+              </p>
+              <div className="flex flex-col gap-4">
+                {moderators.map((moderator) => (
+                  <ModeratorCard key={moderator.id} moderator={moderator} />
+                ))}
+              </div>
+            </div>
+          )}
           {/* Panelists */}
           {speakers.length > 0 && (
             <div className="mt-6">
@@ -535,7 +703,7 @@ function ConventionSlideshow() {
 // =============================================================================
 
 export default function ConventionPage() {
-  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation(0.05)
+  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation(0.3)
 
   return (
     <div className="relative">
@@ -587,19 +755,28 @@ export default function ConventionPage() {
             </div>
             <div className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground">
               <Clock className="h-4 w-4 text-accent" />
-              <span>10:00 AM - 2:00 PM</span>
+              <span>11:00 AM - 5:30 PM</span>
             </div>
             <div className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground">
               <MapPin className="h-4 w-4 text-accent" />
-              <span>Creveling Lounge, PCC</span>
+              <span>CC-201, Creveling Lounge, PCC</span>
             </div>
           </div>
 
           {/* CTA Buttons */}
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button size="lg" asChild>
-              <Link href="/contact">RSVP Now</Link>
+            <Button
+              asChild
+              className="bg-red-600 hover:bg-red-700 text-white px-10 py-7 text-base font-semibold shadow-md hover:shadow-lg transition-all"
+            >
+              <Link href="https://forms.gle/dXG9QJpSovu6TnGf6"
+                target="_blank"          // opens in new tab/window
+                rel="noopener noreferrer" // security best practice
+              >
+                RSVP Now
+              </Link>
             </Button>
+            {/*
             <Button variant="outline" size="lg" asChild>
               <Link
                 href="https://artificial-intelligence-club-at-pcc.github.io/aihorizons/"
@@ -609,6 +786,7 @@ export default function ConventionPage() {
                 Revisit 2025 Convention
               </Link>
             </Button>
+            */}
           </div>
         </div>
 

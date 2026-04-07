@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 
 export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>(
-  threshold = 0.15
+  threshold = 0.05 // activates scroll animation when 5% of it is shown
 ) {
   const ref = useRef<T>(null)
   const [isVisible, setIsVisible] = useState(false)
@@ -19,7 +19,9 @@ export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>(
           observer.unobserve(element)
         }
       },
-      { threshold }
+      { threshold,
+        //rootMargin: "0px 0px -120px 0px", // triggers earlier
+      }
     )
 
     observer.observe(element)
