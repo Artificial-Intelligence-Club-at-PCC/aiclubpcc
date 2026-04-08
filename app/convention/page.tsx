@@ -800,6 +800,37 @@ export default function ConventionPage() {
         <div className="h-px w-full bg-border" />
       </div>
 
+      <div className="mt-8 flex flex-col items-center justify-center gap-6 sm:flex-row sm:justify-center">
+        {/* Landscape Poster */}
+        <div className="relative w-full sm:w-2/3 max-w-[640px] aspect-[16/9] bg-secondary">
+          <Image
+            src="/convention/landscape.png"
+            alt="AI Horizons Convention Poster"
+            fill
+            className="object-cover"
+          />
+        </div>
+
+        {/* Square Map */}
+        <div className="flex flex-col items-center w-40 sm:w-1/3">
+          <a
+            href="https://drive.google.com/uc?export=download&id=1puS1k28qrXxhKPyt98S0WqVi0UWJS2Oh"
+            download
+            className="relative w-full aspect-square"
+          >
+            <Image
+              src="/convention/map.png"
+              alt="Location Map"
+              fill
+              className="object-cover rounded-none"
+            />
+          </a>
+          <p className="text-sm text-gray-500 mt-1 text-center">
+            Click the map to download
+          </p>
+        </div>
+      </div>
+
       {/* Event Schedule */}
       <SectionWrapper className="py-20 md:py-28">
         <div className="mx-auto max-w-4xl px-6">
