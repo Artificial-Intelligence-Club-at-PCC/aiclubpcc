@@ -303,7 +303,7 @@ function getModeratorById(id: string): Moderator | undefined {
 // Marquee Banner Component
 function MarqueeBanner() {
   return (
-    <div className="relative w-full overflow-hidden bg-primary py-2">
+    <div className="relative w-full overflow-hidden bg-primary py-2 mb-6">
       <div className="animate-marquee flex whitespace-nowrap">
         {[...Array(4)].map((_, i) => (
           <span
