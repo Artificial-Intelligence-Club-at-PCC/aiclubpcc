@@ -767,7 +767,7 @@ export default function ConventionPage() {
           </div>
 
           {/* CTA Buttons */}
-          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row mb-3">
             <Button
               asChild
               className="bg-red-600 hover:bg-red-700 text-white px-10 py-7 text-base font-semibold shadow-md hover:shadow-lg transition-all"
