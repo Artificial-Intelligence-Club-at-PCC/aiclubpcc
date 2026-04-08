@@ -43,8 +43,8 @@ const guestSpeakers: GuestSpeaker[] = [
     id: "speaker-3",
     name: "Krys Blackwood",
     title: "Principal UX Designer at NASA JPL",
-    bio: "",
-    image: "/convention/speakers/placeholder.png",
+    bio: "Krys is a principal user experience researcher and designer at NASA’s Jet Propulsion Laboratory, where she leads the Human Centered Design Group in the AI and Data Science section. She is a proud member of the team designing the future of mission operations with the Deep Space Network and Perseverance Mars Rover, and has also worked on the Mars Sample Return, NISAR, Europa Clipper, and Europa Lander missions. Before joining JPL in 2015, Krys spent 20 years in Silicon Valley, designing ecommerce and healthcare experiences with companies ranging from tiny startups to industry giants. She believes that as we charge boldly forward into a world populated by intelligent machines, we have a responsibility to create systems that empower and augment the brilliance of human capability – not replace it.",
+    image: "/convention/speakers/krysblackwood.png",
     linkedin: "https://www.linkedin.com/in/krysblackwood",
     companyLogos: ["/convention/logos/jpl.png"],
   },
@@ -60,9 +60,9 @@ const guestSpeakers: GuestSpeaker[] = [
   {
     id: "speaker-5",
     name: "Alex Desharnais",
-    title: "Technical Group Supervisor at NASA JPL",
-    bio: "",
-    image: "/convention/speakers/placeholder.png",
+    title: "Technical Group Supervisor - Enterprise Software, Systems, and Modeling Engineering - at NASA JPL",
+    bio: "Since joining JPL in 2019, Alex has supported systems and software engineering teams by strategically planning, developing, and deploying complex projects that leverage modern frameworks, tools, processes, and agile engineering practices. He is currently the Manager of the Enterprise Software, Systems and Modeling Engineering group, which provides end-to-end digital engineering support to flight projects and programs. He has also been helping to spearhead GenAI infusion across JPL's Engineering and Science directorate.",
+    image: "/convention/speakers/alexdesharnais.png",
     linkedin: "https://www.linkedin.com/in/electrolexx",
     companyLogos: ["/convention/logos/jpl.png"],
   },
@@ -97,8 +97,8 @@ const guestSpeakers: GuestSpeaker[] = [
     id: "speaker-9",
     name: "Rita Sargsyan",
     title: "AI LA IDEAS Program Director",
-    bio: "",
-    image: "/convention/speakers/placeholder.png",
+    bio: "Rita serves as Program Director and Founders/Investors Ambassador at AI LA, where she builds community-driven programs at the intersection of AI, education, and entrepreneurship—like the IDEAS Program, which equips college students with the tools, mentorship, and hands-on experience to explore and succeed in the world of AI and emerging tech. She previously supported early-stage founders as a Platform Coordinator at the UCLA Venture Accelerator and has worked across venture capital, product, and strategy roles with a focus on AI for social good. With a background in Applied Math from UCLA, Rita is passionate about making tech and entrepreneurship more inclusive—mentoring the next generation of changemakers from all majors and communities.",
+    image: "/convention/speakers/ritasargsyan.png",
     linkedin: "https://www.linkedin.com/in/ritasargsyan",
     companyLogos: ["/convention/logos/aila.png"],
   },
@@ -119,16 +119,16 @@ const moderators: Moderator[] = [
     id: "moderator-1",
     name: "Shin Aung",
     title: "AI Club President & Lead Organizer",
-    bio: "",
-    image: "/convention/speakers/placeholder.png",
+    bio: "Shin is a Computer Science major at Pasadena City College, and the President and Co-Founder of the AI Club at PCC. He plans to transfer in Fall 2026 to further pursue his interests in AI and software engineering.",
+    image: "/convention/speakers/shinaung.png",
     linkedin: "https://linkedin.com/in/shin-htet",
   },
   {
     id: "moderator-2",
     name: "Jamal Ashraf",
     title: "PCC Faculty, AI Club Advisor",
-    bio: "",
-    image: "/convention/speakers/placeholder.png",
+    bio: "Jamal Ashraf is a senior faculty member at Pasadena City College, bringing over 30 years of experience in computer science education, with expertise in Python, Java, and data structures. Passionate about integrating artificial intelligence and data science into education, he developed PCC’s Data Science Certificate program, which has enabled over 150 students to gain advanced skills and secure opportunities at leading tech companies and universities. Beyond teaching, Jamal mentors student-led clubs such as AI Club. His dedication to equity in STEM and real-world applications has earned him recognition for fostering academic-industry connections and inspiring the next generation of technologists.",
+    image: "/convention/speakers/jamalashraf.png",
   },
 ]
 
@@ -333,6 +333,10 @@ function MarqueeBanner() {
 
 // Speaker Card Component - Full size for presentations/panels
 function SpeakerCard({ speaker }: { speaker: GuestSpeaker }) {
+  const [expanded, setExpanded] = useState(false)
+
+  const isLong = speaker.bio.length > 140
+
   return (
     <div className="flex flex-col gap-4 pt-4 sm:flex-row sm:gap-6">
       {/* Speaker Photo */}
@@ -381,9 +385,22 @@ function SpeakerCard({ speaker }: { speaker: GuestSpeaker }) {
         </div>
         
         {/* Bio */}
-        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-          {speaker.bio}
+        <p className="mt-4 text-sm leading-relaxed">
+          <span className="font-medium text-foreground">Bio: </span>{" "}
+          {expanded || !isLong
+            ? speaker.bio
+            : speaker.bio.slice(0, 140) + "..."}
         </p>
+
+        {/* Read More Button */}
+        {isLong && (
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className="mt-1 text-xs font-medium text-accent hover:underline w-fit"
+          >
+            {expanded ? "Show less" : "Read more"}
+          </button>
+        )}
       </div>
     </div>
   )
@@ -391,6 +408,10 @@ function SpeakerCard({ speaker }: { speaker: GuestSpeaker }) {
 
 // Moderator Card Component - Full size for presentations/panels
 function ModeratorCard({ moderator }: { moderator: Moderator }) {
+  const [expanded, setExpanded] = useState(false)
+
+  const isLong = moderator.bio.length > 140
+
   return (
     <div className="flex flex-col gap-4 pt-4 sm:flex-row sm:gap-6">
       {/* Moderator Photo */}
@@ -428,9 +449,23 @@ function ModeratorCard({ moderator }: { moderator: Moderator }) {
         </p>
         
         {/* Bio */}
-        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-          {moderator.bio}
+        {/* Bio */}
+        <p className="mt-4 text-sm leading-relaxed">
+          <span className="font-medium text-foreground">Bio: </span>{" "}
+          {expanded || !isLong
+            ? moderator.bio
+            : moderator.bio.slice(0, 140) + "..."}
         </p>
+
+        {/* Read More Button */}
+        {isLong && (
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className="mt-1 text-xs font-medium text-accent hover:underline w-fit"
+          >
+            {expanded ? "Show less" : "Read more"}
+          </button>
+        )}
       </div>
     </div>
   )
@@ -941,6 +976,19 @@ export default function ConventionPage() {
               fair with over 15 organizations, and lively panel discussions on AI
               and society.
             </p>
+          </div>
+
+          {/* Revisit old website button */}
+          <div className="flex justify-center mt-8">
+            <Button variant="outline" size="lg" asChild>
+              <Link
+                href="https://artificial-intelligence-club-at-pcc.github.io/aihorizons/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Revisit 2025 Convention
+              </Link>
+            </Button>
           </div>
         </div>
       </SectionWrapper>
