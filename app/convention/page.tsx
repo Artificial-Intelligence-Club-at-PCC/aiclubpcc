@@ -52,8 +52,8 @@ const guestSpeakers: GuestSpeaker[] = [
     id: "speaker-4",
     name: "Junyi Chai",
     title: "Principal Applied Scientist at Microsoft",
-    bio: "",
-    image: "/convention/speakers/placeholder.png",
+    bio: "Junyi is a Principal Applied Scientist at Microsoft AI, where he currently develops AI applications for Copilot. He is an expert in Deep Learning, Natural Language Processing (NLP), Search, and Recommendation Systems—the core technologies that allow AI to understand human language and help us find exactly what we need. \n ​Throughout his career, he has worked on products used by millions of consumers every day, including Bing, Amazon Ads, and Bing Ads. Most recently at Amazon, he served as the technical lead for Alexa Plus, a \"zero-to-one\" initiative where he helped rebuild the Alexa experience from the ground up to make the AI significantly smarter and more capable of handling complex tasks.",
+    image: "/convention/speakers/junyichai.png",
     linkedin: "https://www.linkedin.com/in/junyi-chai-174a1ba3",
     companyLogos: ["/convention/logos/microsoft.png"],
   },
@@ -385,7 +385,7 @@ function SpeakerCard({ speaker }: { speaker: GuestSpeaker }) {
         </div>
         
         {/* Bio */}
-        <p className="mt-4 text-sm leading-relaxed">
+        <p className="mt-4 text-sm leading-relaxed whitespace-pre-line">
           <span className="font-medium text-foreground">Bio: </span>{" "}
           {expanded || !isLong
             ? speaker.bio
