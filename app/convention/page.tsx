@@ -334,8 +334,8 @@ function MarqueeBanner() {
 // Speaker Card Component - Full size for presentations/panels
 function SpeakerCard({ speaker }: { speaker: GuestSpeaker }) {
   const [expanded, setExpanded] = useState(false)
-
-  const isLong = speaker.bio.length > 140
+  const bioCutoff = 350
+  const isLong = speaker.bio.length > bioCutoff
 
   return (
     <div className="flex flex-col gap-4 pt-4 sm:flex-row sm:gap-6">
@@ -389,7 +389,7 @@ function SpeakerCard({ speaker }: { speaker: GuestSpeaker }) {
           <span className="font-medium text-foreground">Bio: </span>{" "}
           {expanded || !isLong
             ? speaker.bio
-            : speaker.bio.slice(0, 140) + "..."}
+            : speaker.bio.slice(0, bioCutoff) + "..."}
         </p>
 
         {/* Read More Button */}
@@ -409,8 +409,8 @@ function SpeakerCard({ speaker }: { speaker: GuestSpeaker }) {
 // Moderator Card Component - Full size for presentations/panels
 function ModeratorCard({ moderator }: { moderator: Moderator }) {
   const [expanded, setExpanded] = useState(false)
-
-  const isLong = moderator.bio.length > 140
+  const bioCutoff = 300
+  const isLong = moderator.bio.length > bioCutoff
 
   return (
     <div className="flex flex-col gap-4 pt-4 sm:flex-row sm:gap-6">
@@ -454,7 +454,7 @@ function ModeratorCard({ moderator }: { moderator: Moderator }) {
           <span className="font-medium text-foreground">Bio: </span>{" "}
           {expanded || !isLong
             ? moderator.bio
-            : moderator.bio.slice(0, 140) + "..."}
+            : moderator.bio.slice(0, bioCutoff) + "..."}
         </p>
 
         {/* Read More Button */}
