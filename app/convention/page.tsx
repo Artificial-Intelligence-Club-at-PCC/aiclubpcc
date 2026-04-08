@@ -970,7 +970,7 @@ export default function ConventionPage() {
 
           <div className="mx-auto mt-10 max-w-2xl text-center">
             <p className="text-base leading-relaxed text-muted-foreground">
-              Our inaugural AI Horizons Convention brought the campus community
+              Our AI Horizons Convention 2025 brought the campus community
               together for a day of learning, networking, and inspiration. The event
               featured keynotes on foundation models and responsible AI, a tabling
               fair with over 15 organizations, and lively panel discussions on AI
