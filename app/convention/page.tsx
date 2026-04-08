@@ -41,15 +41,6 @@ const guestSpeakers: GuestSpeaker[] = [
   },
   {
     id: "speaker-3",
-    name: "Peng Guo",
-    title: "AR Engineer at Snap Inc.",
-    bio: "",
-    image: "/convention/speakers/placeholder.png",
-    linkedin: "https://www.linkedin.com/in/eric-peng-guo",
-    companyLogos: ["/convention/logos/snap.png"],
-  },
-  {
-    id: "speaker-4",
     name: "Krys Blackwood",
     title: "Principal UX Designer at NASA JPL",
     bio: "",
@@ -58,7 +49,7 @@ const guestSpeakers: GuestSpeaker[] = [
     companyLogos: ["/convention/logos/jpl.png"],
   },
   {
-    id: "speaker-5",
+    id: "speaker-4",
     name: "Junyi Chai",
     title: "Principal Applied Scientist at Microsoft",
     bio: "",
@@ -67,22 +58,31 @@ const guestSpeakers: GuestSpeaker[] = [
     companyLogos: ["/convention/logos/microsoft.png"],
   },
   {
-    id: "speaker-6",
-    name: "TBA",
-    title: "TBA",
+    id: "speaker-5",
+    name: "Alex Desharnais",
+    title: "Technical Group Supervisor at NASA JPL",
     bio: "",
     image: "/convention/speakers/placeholder.png",
-    linkedin: "https://linkedin.com/in/username",
-    companyLogos: ["/convention/logos/placeholder.png"],
+    linkedin: "https://www.linkedin.com/in/electrolexx",
+    companyLogos: ["/convention/logos/jpl.png"],
+  },
+  {
+    id: "speaker-6",
+    name: "Peng Guo",
+    title: "AR Engineer at Snap Inc.",
+    bio: "",
+    image: "/convention/speakers/placeholder.png",
+    linkedin: "https://www.linkedin.com/in/eric-peng-guo",
+    companyLogos: ["/convention/logos/snap.png"],
   },
   {
     id: "speaker-7",
-    name: "Rita Sargsyan",
-    title: "AI LA IDEAS Program Director",
+    name: "Rick Hefner",
+    title: "Executive Director at Caltech CTME",
     bio: "",
     image: "/convention/speakers/placeholder.png",
-    linkedin: "https://www.linkedin.com/in/ritasargsyan",
-    companyLogos: ["/convention/logos/aila.png"],
+    linkedin: "https://www.linkedin.com/in/rickhefner",
+    companyLogos: ["/convention/logos/caltech.png"],
   },
   {
     id: "speaker-8",
@@ -95,12 +95,12 @@ const guestSpeakers: GuestSpeaker[] = [
   },
   {
     id: "speaker-9",
-    name: "Rick Hefner",
-    title: "Executive Director at Caltech CTME",
+    name: "Rita Sargsyan",
+    title: "AI LA IDEAS Program Director",
     bio: "",
     image: "/convention/speakers/placeholder.png",
-    linkedin: "https://www.linkedin.com/in/rickhefner",
-    companyLogos: ["/convention/logos/caltech.png"],
+    linkedin: "https://www.linkedin.com/in/ritasargsyan",
+    companyLogos: ["/convention/logos/aila.png"],
   },
   {
     id: "speaker-10",
@@ -197,7 +197,7 @@ const collaborators: Collaborator[] = [
   { name: "Decoded Brain", logo: "/convention/logos/decodedbrain.png", url: "https://research.decodedbrain.net/" },
   { name: "She.Codes", logo: "/convention/logos/shecodes.png", url: "https://lancerlife.pasadena.edu/organization/shecodes" },
   { name: "Data Science Club", logo: "/convention/logos/datascienceclub.png", url: "https://lancerlife.pasadena.edu/organization/datascienceclub" },
-  // { name: "Pi Club", logo: "/convention/logos/piclub.png", url: "#" },
+  { name: "Pi Club", logo: "/convention/logos/piclub.png", url: "https://lancerlife.pasadena.edu/organization/piclub" },
   { name: "AI LA IDEAS Program", logo: "/convention/logos/aila.png", url: "https://www.joinai.la/" },
   // { name: "STEM Advantage", logo: "/convention/logos/stemadvantage.png", url: "https://stemadvantage.org/" },
   { name: "Autodesk", logo: "/convention/logos/autodesk.png", url: "https://www.autodesk.com/" },
@@ -718,13 +718,16 @@ export default function ConventionPage() {
         {/* Background with gradient fade */}
         <div className="pointer-events-none absolute inset-0">
           <Image
-            src="/images/convention-bg.jpg"
+            src="/convention/conventionpic14.jpg"
             alt=""
             fill
-            className="object-cover opacity-20"
+            className="object-cover opacity-30"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
+          {/* Ultra-light icy blue overlay */}
+          <div className="absolute inset-0 bg-white/10 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-blue-50/10" />
         </div>
 
         <div
@@ -738,7 +741,7 @@ export default function ConventionPage() {
           <h1 className="mt-3 font-[family-name:var(--font-space-grotesk)] text-5xl font-bold leading-tight tracking-tight text-foreground md:text-7xl">
             <span className="text-balance">AI Horizons Convention</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed md:text-lg">
             Explore the world of Artificial Intelligence at PCC&apos;s AI Horizons
             Convention! Join us for a day of tabling fair, guest presentations, and
             expert panels designed to showcase AI&apos;s real-world applications,
