@@ -146,7 +146,7 @@ const eventSchedule: ScheduleItem[] = [
     type: "presentation",
     timeStart: "1:00 PM",
     timeEnd: "1:45 PM",
-    title: "AI Explained - From Hype to Reality (Official Title TBA)",
+    title: "AI in 2026: Hype, Reality, and What Comes Next",
     description: "TBA: Hear from a leading researcher or industry professional on cutting-edge AI developments, trends, and applications. Gain insights from expert perspectives in AI research and industry practice.",
     speakerId: "speaker-1",
     flyer: "/convention/flyers/placeholder.png",
