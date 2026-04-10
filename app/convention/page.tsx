@@ -23,7 +23,7 @@ import { Button } from "@/components/ui/button"
 const guestSpeakers: GuestSpeaker[] = [
   {
     id: "speaker-1",
-    name: "Michael Krauser",
+    name: "Michael Krause",
     title: "AI Instructor at Caltech",
     bio: "",
     image: "/convention/speakers/placeholder.png",
