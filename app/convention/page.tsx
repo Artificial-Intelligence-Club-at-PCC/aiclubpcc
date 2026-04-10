@@ -785,22 +785,6 @@ export default function ConventionPage() {
             chance to learn, connect, and discover your next steps in AI.
           </p>
 
-          {/* Date, Time, Location Row */}
-          <div className="mx-auto mt-10 flex flex-col items-center justify-center gap-6 sm:flex-row">
-            <div className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground">
-              <Calendar className="h-4 w-4 text-accent" />
-              <span>April 23, 2026</span>
-            </div>
-            <div className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground">
-              <Clock className="h-4 w-4 text-accent" />
-              <span>11:00 AM - 5:30 PM</span>
-            </div>
-            <div className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground">
-              <MapPin className="h-4 w-4 text-accent" />
-              <span>CC-201, Creveling Lounge, PCC</span>
-            </div>
-          </div>
-
           {/* CTA Buttons */}
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row mb-3">
             <Button
@@ -825,6 +809,22 @@ export default function ConventionPage() {
               </Link>
             </Button>
             */}
+          </div>
+
+          {/* Date, Time, Location Row */}
+          <div className="mx-auto mt-10 flex flex-col items-center justify-center gap-6 sm:flex-row">
+            <div className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground">
+              <Calendar className="h-4 w-4 text-accent" />
+              <span>April 23, 2026</span>
+            </div>
+            <div className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground">
+              <Clock className="h-4 w-4 text-accent" />
+              <span>11:00 AM - 5:30 PM</span>
+            </div>
+            <div className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground">
+              <MapPin className="h-4 w-4 text-accent" />
+              <span>CC-201, Creveling Lounge, PCC</span>
+            </div>
           </div>
         </div>
 
