@@ -88,8 +88,8 @@ const guestSpeakers: GuestSpeaker[] = [
     id: "speaker-8",
     name: "Rafal Kocielnik",
     title: "AI Research Scientist (Surgical AI) at Cedars-Sinai",
-    bio: "",
-    image: "/convention/speakers/placeholder.png",
+    bio: "Rafał Kocielnik is a Research Scientist at Cedars-Sinai Medical Center in Los Angeles, focusing on Human-Centered AI, including leveraging multimodal AI to advance the quality of surgical training. He earned his Ph.D. in Human-Centered Design & Engineering from the University of Washington, where he focused on designing engaging conversational interactions for health and behavior change, and previously held a CRA Computing Innovation Fellowship at Caltech. His research addresses some of AI’s most pressing challenges, conversational agents, bias in generative AI, and AI for surgical training, earning Best Paper Awards at leading venues spanning human-computer interaction, applied AI, and NLP, including CSCW (the premier conference on computing and social behavior), CHI (the flagship conference on human factors in computing systems), ML4H (Machine Learning for Health), and COLM (Conference on Language Modeling), with work also published in Nature Digital Medicine. With over 60 publications and industry collaborations with Activision, Microsoft, NVIDIA, and Wikipedia, Rafał is dedicated to advancing AI that is both technically rigorous and genuinely human-centered.",
+    image: "/convention/speakers/rafalkocielnik.png",
     linkedin: "https://www.linkedin.com/in/rkocielnik/",
     companyLogos: ["/convention/logos/cedarssinai.png"],
   },
@@ -147,7 +147,7 @@ const eventSchedule: ScheduleItem[] = [
     timeStart: "1:00 PM",
     timeEnd: "1:45 PM",
     title: "AI in 2026: Hype, Reality, and What Comes Next",
-    description: "TBA: Hear from a leading researcher or industry professional on cutting-edge AI developments, trends, and applications. Gain insights from expert perspectives in AI research and industry practice.",
+    description: "This talk cuts through the noise on where AI actually stands in 2026 - what's working, what's overhyped, and what's coming next. Mike will share his perspective from 15 years deploying AI solutions in real-world use cases, covering topics like the gap between AI demos and production reality, how to build the skills and domain knowledge that make AI genuinely useful, and how to think about the risks that actually matter. He'll also address what the current moment means for students entering the workforce - and how to position yourself on the right side of the shift.",
     speakerId: "speaker-1",
     flyer: "/convention/flyers/placeholder.png",
   },
@@ -526,7 +526,7 @@ function PresentationItem({ item }: { item: ScheduleItem }) {
           <h3 className="mt-4 font-[family-name:var(--font-space-grotesk)] text-xl font-bold text-foreground">
             {item.title}
           </h3>
-          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+          <p className="mt-3 text-base leading-relaxed">
             {item.description}
           </p>
           
