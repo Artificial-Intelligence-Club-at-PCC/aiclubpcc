@@ -175,9 +175,9 @@ const eventSchedule: ScheduleItem[] = [
     type: "panel",
     timeStart: "4:00 PM",
     timeEnd: "4:50 PM",
-    title: "AI in Research, Academia, and Future Directions",
+    title: "Careers, Research and the Future of AI",
     description:
-      "Exploring advances in AI research and academic work, this panel will highlight emerging trends, ongoing challenges, and the future directions shaping the field. Discussions will cover ethical considerations, societal impact, and how research in academia connects with broader technological innovation.",
+      "Exploring pathways into AI, this panel will highlight careers in industry and academia, opportunities in research, and the future directions shaping the field. Discussions will cover how students can get involved, the skills needed to succeed, and how emerging trends are influencing both professional and research landscapes.",
     moderatorIds: ["moderator-2"],
     speakerIds: ["speaker-7", "speaker-8", "speaker-9", "speaker-10"],
     flyer: "/convention/flyers/placeholder.png",
