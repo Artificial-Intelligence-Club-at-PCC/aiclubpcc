@@ -104,12 +104,12 @@ const guestSpeakers: GuestSpeaker[] = [
   },
   {
     id: "speaker-10",
-    name: "TBA",
-    title: "TBA",
-    bio: "",
-    image: "/convention/speakers/placeholder.png",
-    linkedin: "https://linkedin.com/in/username",
-    companyLogos: ["/convention/logos/placeholder.png"],
+    name: "Gamas Chang",
+    title: "Principal Software Engineer at Magnite",
+    bio: "Gamas Chang is an experienced software engineer with decades of expertise in the entertainment and advertising technology industries, having worked with companies such as Disney, HBO, DreamWorks Animation, and Magnite. In addition to his industry experience, he is the founder of an online coding school for kids, www.ayclogic.com. Gamas is passionate about teaching students how to create games, mobile applications, and explore AI machine learning, computer vision, and AI agents using modern technologies.",
+    image: "/convention/speakers/gamaschang.png",
+    linkedin: "https://linkedin.com/in/gamas",
+    companyLogos: ["/convention/logos/magnite.png"],
   },
 ]
 
