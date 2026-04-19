@@ -149,7 +149,7 @@ const eventSchedule: ScheduleItem[] = [
     title: "AI in 2026: Hype, Reality, and What Comes Next",
     description: "This talk cuts through the noise on where AI actually stands in 2026 - what's working, what's overhyped, and what's coming next. Mike will share his perspective from 15 years deploying AI solutions in real-world use cases, covering topics like the gap between AI demos and production reality, how to build the skills and domain knowledge that make AI genuinely useful, and how to think about the risks that actually matter. He'll also address what the current moment means for students entering the workforce - and how to position yourself on the right side of the shift.",
     speakerId: "speaker-1",
-    flyer: "/convention/flyers/placeholder.png",
+    flyer: "/convention/flyers/aispeaker.png",
   },
   {
     type: "presentation",
@@ -169,7 +169,7 @@ const eventSchedule: ScheduleItem[] = [
       "This panel explores how AI is applied in real-world settings across industries, highlighting the challenges of scaling AI systems, integrating them into existing workflows, and achieving measurable impact. Discussions will include lessons learned from practical deployments and insights on translating AI research into everyday solutions.",
     moderatorIds: ["moderator-1"],
     speakerIds: ["speaker-3", "speaker-4", "speaker-5", "speaker-6"],
-    flyer: "/convention/flyers/placeholder.png",
+    flyer: "/convention/flyers/industrypanel.png",
   },
   {
     type: "panel",
@@ -180,7 +180,7 @@ const eventSchedule: ScheduleItem[] = [
       "Exploring pathways into AI, this panel will highlight careers in industry and academia, opportunities in research, and the future directions shaping the field. Discussions will cover how students can get involved, the skills needed to succeed, and how emerging trends are influencing both professional and research landscapes.",
     moderatorIds: ["moderator-2"],
     speakerIds: ["speaker-7", "speaker-8", "speaker-9", "speaker-10"],
-    flyer: "/convention/flyers/placeholder.png",
+    flyer: "/convention/flyers/careerpanel.png",
   },
   {
     type: "closing",
