@@ -204,6 +204,7 @@ const collaborators: Collaborator[] = [
   { name: "JPL STEM Engagement", logo: "/convention/logos/jpl.png", url: "https://www.jpl.nasa.gov/edu/about-jpl-education/" },
   { name: "AI/ML Club at CSULA", logo: "/convention/logos/aimlclubcsula.png", url: "" },
   { name: "CSULA SMART Internship Program", logo: "/convention/logos/smart.png", url: "https://www.calstatela.edu/ecst/ece/cal-state-la-stem-core" },
+  { name: "UCLA CCCP Program", logo: "/convention/logos/ucla.png", url: "https://cccp.ucla.edu/" },
 ]
 
 // 2025 Convention Photos
