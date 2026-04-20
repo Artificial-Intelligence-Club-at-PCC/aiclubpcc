@@ -198,11 +198,12 @@ const collaborators: Collaborator[] = [
   { name: "She.Codes", logo: "/convention/logos/shecodes.png", url: "https://lancerlife.pasadena.edu/organization/shecodes" },
   { name: "Data Science Club", logo: "/convention/logos/datascienceclub.png", url: "https://lancerlife.pasadena.edu/organization/datascienceclub" },
   { name: "Pi Club", logo: "/convention/logos/piclub.png", url: "https://lancerlife.pasadena.edu/organization/piclub" },
+  { name: "PCC SHPE", logo: "/convention/logos/shpe.png", url: "https://lancerlife.pasadena.edu/organization/shpe-pcc" },
   { name: "AI LA IDEAS Program", logo: "/convention/logos/aila.png", url: "https://www.joinai.la/" },
-  // { name: "STEM Advantage", logo: "/convention/logos/stemadvantage.png", url: "https://stemadvantage.org/" },
-  { name: "Autodesk", logo: "/convention/logos/autodesk.png", url: "https://www.autodesk.com/" },
   { name: "MESA", logo: "/convention/logos/mesa.png", url: "https://pasadena.edu/academics/support/mesa/index.php" },
   { name: "JPL STEM Engagement", logo: "/convention/logos/jpl.png", url: "https://www.jpl.nasa.gov/edu/about-jpl-education/" },
+  { name: "AI/ML Club at CSULA", logo: "/convention/logos/aimlclubcsula.png", url: "" },
+  { name: "CSULA SMART Internship Program", logo: "/convention/logos/smart.png", url: "https://www.calstatela.edu/ecst/ece/cal-state-la-stem-core" },
 ]
 
 // 2025 Convention Photos
