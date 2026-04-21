@@ -77,6 +77,15 @@ const guestSpeakers: GuestSpeaker[] = [
   },
   {
     id: "speaker-7",
+    name: "Gamas Chang",
+    title: "Principal Software Engineer at Magnite",
+    bio: "Gamas Chang is an experienced software engineer with decades of expertise in the entertainment and advertising technology industries, having worked with companies such as Disney, HBO, DreamWorks Animation, and Magnite. In addition to his industry experience, he is the founder of an online coding school for kids, www.ayclogic.com. Gamas is passionate about teaching students how to create games, mobile applications, and explore AI machine learning, computer vision, and AI agents using modern technologies.",
+    image: "/convention/speakers/gamaschang.png",
+    linkedin: "https://linkedin.com/in/gamas",
+    companyLogos: ["/convention/logos/magnite.png"],
+  },
+  {
+    id: "speaker-8",
     name: "Rick Hefner",
     title: "Executive Director at Caltech CTME",
     bio: "Dr. Rick Hefner is the Executive Director of the Caltech Center for Technology and Management Education (CTME), where he leads the development of advanced professional and executive education programs. He has over 40 years of experience spanning aerospace, defense, communications, and health sciences, and is credited with over 200 presentations and publications.",
@@ -85,7 +94,7 @@ const guestSpeakers: GuestSpeaker[] = [
     companyLogos: ["/convention/logos/caltech.png"],
   },
   {
-    id: "speaker-8",
+    id: "speaker-9",
     name: "Rafal Kocielnik",
     title: "AI Research Scientist (Surgical AI) at Cedars-Sinai",
     bio: "Rafał Kocielnik is a Research Scientist at Cedars-Sinai Medical Center in Los Angeles, focusing on Human-Centered AI, including leveraging multimodal AI to advance the quality of surgical training. He earned his Ph.D. in Human-Centered Design & Engineering from the University of Washington, where he focused on designing engaging conversational interactions for health and behavior change, and previously held a CRA Computing Innovation Fellowship at Caltech. His research addresses some of AI’s most pressing challenges, conversational agents, bias in generative AI, and AI for surgical training, earning Best Paper Awards at leading venues spanning human-computer interaction, applied AI, and NLP, including CSCW (the premier conference on computing and social behavior), CHI (the flagship conference on human factors in computing systems), ML4H (Machine Learning for Health), and COLM (Conference on Language Modeling), with work also published in Nature Digital Medicine. With over 60 publications and industry collaborations with Activision, Microsoft, NVIDIA, and Wikipedia, Rafał is dedicated to advancing AI that is both technically rigorous and genuinely human-centered.",
@@ -94,22 +103,13 @@ const guestSpeakers: GuestSpeaker[] = [
     companyLogos: ["/convention/logos/cedarssinai.png"],
   },
   {
-    id: "speaker-9",
+    id: "speaker-10",
     name: "Rita Sargsyan",
     title: "AI LA IDEAS Program Director",
     bio: "Rita serves as Program Director and Founders/Investors Ambassador at AI LA, where she builds community-driven programs at the intersection of AI, education, and entrepreneurship—like the IDEAS Program, which equips college students with the tools, mentorship, and hands-on experience to explore and succeed in the world of AI and emerging tech. She previously supported early-stage founders as a Platform Coordinator at the UCLA Venture Accelerator and has worked across venture capital, product, and strategy roles with a focus on AI for social good. With a background in Applied Math from UCLA, Rita is passionate about making tech and entrepreneurship more inclusive—mentoring the next generation of changemakers from all majors and communities.",
     image: "/convention/speakers/ritasargsyan.png",
     linkedin: "https://www.linkedin.com/in/ritasargsyan",
     companyLogos: ["/convention/logos/aila.png"],
-  },
-  {
-    id: "speaker-10",
-    name: "Gamas Chang",
-    title: "Principal Software Engineer at Magnite",
-    bio: "Gamas Chang is an experienced software engineer with decades of expertise in the entertainment and advertising technology industries, having worked with companies such as Disney, HBO, DreamWorks Animation, and Magnite. In addition to his industry experience, he is the founder of an online coding school for kids, www.ayclogic.com. Gamas is passionate about teaching students how to create games, mobile applications, and explore AI machine learning, computer vision, and AI agents using modern technologies.",
-    image: "/convention/speakers/gamaschang.png",
-    linkedin: "https://linkedin.com/in/gamas",
-    companyLogos: ["/convention/logos/magnite.png"],
   },
 ]
 
